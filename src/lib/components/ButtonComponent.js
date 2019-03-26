@@ -1,11 +1,12 @@
 import React from 'react';
 import { ButtonComponentStyled } from './Style';
 
-const ButtonComponent = (props)=> {
+const ButtonComponent = (props) => {
   return (
     <div className='button-component-module'>
-      <ButtonComponentStyled>
+      <ButtonComponentStyled {...props}>
         {props.children}
+        {props.loading && ' ...'}
       </ButtonComponentStyled>
     </div>
   );
