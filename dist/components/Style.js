@@ -41,7 +41,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\n  @font-face {\n    font-family: Poppins;\n    src: ", ", format(\"TrueType\");\n    font-display: fallback;\n  }\n\n  .button-component-module {\n    font-family: Poppins, sans-serif;\n    margin: 0.5em;\n    position: relative;\n  }\n  .button-component-module * {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n\n  @font-face {\n    font-family: Poppins;\n    src: ", ", format(\"TrueType\");\n    font-display: fallback;\n  }\n\n  .button-component-module {\n    display: inline-block;\n    font-family: Poppins, sans-serif;\n    margin: 0.5em;\n    position: relative;\n  }\n  .button-component-module * {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;

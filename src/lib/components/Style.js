@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .button-component-module {
+    display: inline-block;
     font-family: Poppins, sans-serif;
     margin: 0.5em;
     position: relative;
