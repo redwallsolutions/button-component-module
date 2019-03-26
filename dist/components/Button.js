@@ -41,8 +41,12 @@ function (_Component) {
           appearance = _this$props.appearance,
           size = _this$props.size,
           disabled = _this$props.disabled,
-          loading = _this$props.loading;
+          loading = _this$props.loading,
+          afterIcon = _this$props.afterIcon,
+          isCircle = _this$props.isCircle;
       return React.createElement(React.Fragment, null, React.createElement(GlobalStyle, null), React.createElement(ButtonComponent, {
+        isCircle: isCircle,
+        afterIcon: afterIcon,
         appearance: appearance,
         size: size,
         disabled: disabled,

@@ -5,8 +5,10 @@ const ButtonComponent = (props) => {
   return (
     <div className='button-component-module'>
       <ButtonComponentStyled {...props}>
+        {props.beforeIcon}
         {props.children}
         {props.loading && ' ...'}
+        {props.afterIcon}
       </ButtonComponentStyled>
     </div>
   );

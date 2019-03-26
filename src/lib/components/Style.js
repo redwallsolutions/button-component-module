@@ -45,8 +45,27 @@ const applyCSSWhenLoading = css`
   background-color: ${props => Color(props.theme.button[props.appearance]).desaturate(0.2).string()};
   cursor: progress;
 `
+
+const applyCSSWhenCircle = css`
+  width: ${
+    props =>
+      (props.size === 'small' && '40px') ||
+      (props.size === 'medium' && '60px') ||
+      (props.size === 'large' && '80px')
+  };
+  height: ${
+    props =>
+      (props.size === 'small' && '40px') ||
+      (props.size === 'medium' && '60px') ||
+      (props.size === 'large' && '80px')
+  };
+  padding: 10px;
+  border-radius: 50%;
+`
 export const ButtonComponentStyled = styled.button`
-  display: inline-block;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   user-select: none;
   padding: ${
     props =>
@@ -67,6 +86,7 @@ export const ButtonComponentStyled = styled.button`
   transition: background .2s, color .2s, border .1s;
   cursor: pointer;
   transition: .3s ease-in-out;
+  ${props => props.isCircle && applyCSSWhenCircle}
   ${props => !props.disabled && !props.loading && applyCSSWhenNotDisabled}
   ${props => props.loading && applyCSSWhenLoading}
   &:disabled {

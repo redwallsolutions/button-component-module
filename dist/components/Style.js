@@ -1,7 +1,17 @@
 import _taggedTemplateLiteral from "@babel/runtime/helpers/esm/taggedTemplateLiteral";
 
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  user-select: none;\n  padding: ", ";\n  outline: none;\n  border: 1px solid ", ";\n  border-radius: 4px;\n  font-size: ", ";\n  color: ", ";\n  background-color: ", ";\n  transition: background .2s, color .2s, border .1s;\n  cursor: pointer;\n  transition: .3s ease-in-out;\n  ", "\n  ", "\n  ", "\n  &:disabled {\n    background-color: ", ";\n    cursor: not-allowed;\n    color: ", ";\n  }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  display: inline-block;\n  user-select: none;\n  padding: ", ";\n  outline: none;\n  border: 1px solid ", ";\n  border-radius: 4px;\n  font-size: ", ";\n  color: ", ";\n  background-color: ", ";\n  transition: background .2s, color .2s, border .1s;\n  cursor: pointer;\n  transition: .3s ease-in-out;\n  ", "\n  ", "\n  &:disabled {\n    background-color: ", ";\n    cursor: not-allowed;\n    color: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  width: ", ";\n  height: ", ";\n  padding: 10px;\n  border-radius: 50%;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -52,7 +62,12 @@ var applyCSSWhenNotDisabled = css(_templateObject2(), function (props) {
 var applyCSSWhenLoading = css(_templateObject3(), function (props) {
   return Color(props.theme.button[props.appearance]).desaturate(0.2).string();
 });
-export var ButtonComponentStyled = styled.button(_templateObject4(), function (props) {
+var applyCSSWhenCircle = css(_templateObject4(), function (props) {
+  return props.size === 'small' && '40px' || props.size === 'medium' && '60px' || props.size === 'large' && '80px';
+}, function (props) {
+  return props.size === 'small' && '40px' || props.size === 'medium' && '60px' || props.size === 'large' && '80px';
+});
+export var ButtonComponentStyled = styled.button(_templateObject5(), function (props) {
   return props.size === 'small' && '5px 15px' || props.size === 'medium' && '10px 20px' || props.size === 'large' && '15px 40px';
 }, function (props) {
   return Color(props.theme.button[props.appearance]).string();
@@ -62,6 +77,8 @@ export var ButtonComponentStyled = styled.button(_templateObject4(), function (p
   return Color(props.theme.button[props.appearance]).isDark() ? Color(props.theme.button[props.appearance]).lighten(1).lighten(1).opaquer(1).string() : Color(props.theme.button[props.appearance]).darken(0.7).string();
 }, function (props) {
   return props.theme.button[props.appearance];
+}, function (props) {
+  return props.isCircle && applyCSSWhenCircle;
 }, function (props) {
   return !props.disabled && !props.loading && applyCSSWhenNotDisabled;
 }, function (props) {

@@ -3,6 +3,8 @@ import { render } from "react-dom";
 
 import Button from './lib'
 
+import { FaAngleRight } from 'react-icons/fa';
+
 const onClick = (e) => {
   console.log("clicked: ", e);
 }
@@ -33,6 +35,14 @@ const App = () => (
     <Button loading={true} appearance='primary' onClick={onClick}>
       Loading Primary
     </Button>
+    <Button afterIcon={<FaAngleRight/>}>Text Icon</Button>
+    <Button afterIcon={<FaAngleRight/>} appearance='primary'/>
+    <Button afterIcon={<FaAngleRight/>} isCircle={true}/>
+    <Button afterIcon={<FaAngleRight/>} isCircle={true} appearance='primary'/>
+    <Button afterIcon={<FaAngleRight/>} isCircle={true} size='large'/>
+    <Button afterIcon={<FaAngleRight/>} isCircle={true} appearance='primary' size='small'/>
+    <Button afterIcon={<FaAngleRight/>} isCircle={true} size='large'>With Text </Button>
+    <Button afterIcon={<FaAngleRight/>} isCircle={true} appearance='primary' size='small'/>
   </React.Fragment>
 );
 
