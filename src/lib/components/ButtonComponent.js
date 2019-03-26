@@ -1,14 +1,14 @@
 import React from 'react';
-import { ButtonComponentStyled } from './Style';
+import { ButtonComponentStyled, ButtonIconStyled } from './Style';
 
 const ButtonComponent = (props) => {
   return (
     <div className='button-component-module'>
       <ButtonComponentStyled {...props}>
-        {props.beforeIcon}
+        <ButtonIconStyled isBefore={props.children}>{props.beforeIcon}</ButtonIconStyled>
         {props.children}
         {props.loading && ' ...'}
-        {props.afterIcon}
+        <ButtonIconStyled isAfter={props.children}>{props.afterIcon}</ButtonIconStyled>
       </ButtonComponentStyled>
     </div>
   );

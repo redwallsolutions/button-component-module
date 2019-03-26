@@ -1,5 +1,15 @@
 import _taggedTemplateLiteral from "@babel/runtime/helpers/esm/taggedTemplateLiteral";
 
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-top: 1.2px;\n  margin", "px;\n\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject5() {
   var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  user-select: none;\n  padding: ", ";\n  outline: none;\n  border: 1px solid ", ";\n  border-radius: 4px;\n  font-size: ", ";\n  color: ", ";\n  background-color: ", ";\n  transition: background .2s, color .2s, border .1s;\n  cursor: pointer;\n  transition: .3s ease-in-out;\n  ", "\n  ", "\n  ", "\n  &:disabled {\n    background-color: ", ";\n    cursor: not-allowed;\n    color: ", ";\n  }\n"]);
 
@@ -98,3 +108,6 @@ ButtonComponentStyled.defaultProps = {
     }
   }
 };
+export var ButtonIconStyled = styled.span(_templateObject6(), function (props) {
+  return props.isBefore ? '-right: 10' : props.isAfter ? '-left: 10' : ':0';
+});

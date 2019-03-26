@@ -3,7 +3,7 @@ import { render } from "react-dom";
 
 import Button from './lib'
 
-import { FaAngleRight } from 'react-icons/fa';
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 
 const onClick = (e) => {
   console.log("clicked: ", e);
@@ -36,6 +36,7 @@ const App = () => (
       Loading Primary
     </Button>
     <Button afterIcon={<FaAngleRight/>}>Text Icon</Button>
+    <Button beforeIcon={<FaAngleLeft/>}>Text Icon Before</Button>
     <Button afterIcon={<FaAngleRight/>} appearance='primary'/>
     <Button afterIcon={<FaAngleRight/>} isCircle={true}/>
     <Button afterIcon={<FaAngleRight/>} isCircle={true} appearance='primary'/>

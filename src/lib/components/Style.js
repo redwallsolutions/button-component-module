@@ -111,3 +111,12 @@ ButtonComponentStyled.defaultProps = {
     }
   }
 }
+
+export const ButtonIconStyled = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.2px;
+  margin${props => props.isBefore ? '-right: 10' : (props.isAfter ? '-left: 10' : ':0')}px;
+
+`
