@@ -1,3 +1,3 @@
-import ItsWorking from './components/ItsWorking'
+import Button from './components/Button'
 
-export {ItsWorking}
+export default Button

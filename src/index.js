@@ -1,10 +1,12 @@
 import React from 'react';
 import { render } from "react-dom";
 
-import {ItsWorking} from './lib'
+import Button from './lib'
 
 const App = () => (
-  <ItsWorking/>
+  <Button>
+    Teste
+  </Button>
 );
 
 render(<App />, document.getElementById("root"));
