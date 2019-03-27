@@ -37,24 +37,9 @@ function (_Component) {
   _createClass(Button, [{
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          appearance = _this$props.appearance,
-          size = _this$props.size,
-          disabled = _this$props.disabled,
-          loading = _this$props.loading,
-          beforeIcon = _this$props.beforeIcon,
-          afterIcon = _this$props.afterIcon,
-          isCircle = _this$props.isCircle;
-      return React.createElement(React.Fragment, null, React.createElement(GlobalStyle, null), React.createElement(ButtonComponent, {
-        isCircle: isCircle,
-        beforeIcon: beforeIcon,
-        afterIcon: afterIcon,
-        appearance: appearance,
-        size: size,
-        disabled: disabled,
-        loading: loading,
+      return React.createElement(React.Fragment, null, React.createElement(GlobalStyle, null), React.createElement(ButtonComponent, Object.assign({}, this.props, {
         onClick: this.onClick
-      }, this.props.children));
+      }), this.props.children));
     }
   }]);
 
