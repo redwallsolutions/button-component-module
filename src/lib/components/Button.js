@@ -10,11 +10,10 @@ class Button extends Component {
   }
 
   render() {
-    const {appearance, size, disabled, loading, beforeIcon, afterIcon, isCircle} = this.props;
     return (
       <React.Fragment>
         <GlobalStyle/>
-        <ButtonComponent isCircle={isCircle} beforeIcon={beforeIcon} afterIcon={afterIcon} appearance={appearance} size={size} disabled={disabled} loading={loading} onClick={this.onClick}>
+        <ButtonComponent {...this.props} onClick={this.onClick}>
           {this.props.children}
         </ButtonComponent>
       </React.Fragment>
