@@ -7,7 +7,9 @@ var ButtonComponent = function ButtonComponent(props) {
   var hasAfterIcon = props.afterIcon ? true : false;
   return React.createElement("div", {
     className: "button-component-module"
-  }, React.createElement(ButtonComponentStyled, props, hasBeforeIcon && React.createElement(ButtonIconStyled, {
+  }, React.createElement(ButtonComponentStyled, Object.assign({}, props, {
+    title: props.title || props.children
+  }), hasBeforeIcon && React.createElement(ButtonIconStyled, {
     isBefore: hasChildren
   }, props.beforeIcon), hasChildren && React.createElement(ButtonTextStyled, null, props.children, props.loading && '...'), hasAfterIcon && React.createElement(ButtonIconStyled, {
     isAfter: hasChildren

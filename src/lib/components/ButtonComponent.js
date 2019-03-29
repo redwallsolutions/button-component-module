@@ -7,7 +7,7 @@ const ButtonComponent = (props) => {
   const hasAfterIcon = props.afterIcon ? true : false
   return (
     <div className='button-component-module'>
-      <ButtonComponentStyled {...props}>
+      <ButtonComponentStyled {...props} title={props.title || props.children}>
         {
           hasBeforeIcon && (
             <ButtonIconStyled isBefore={hasChildren}>{props.beforeIcon}</ButtonIconStyled>
