@@ -1,7 +1,7 @@
 import _taggedTemplateLiteral from "@babel/runtime/helpers/esm/taggedTemplateLiteral";
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  text-overflow: ellipsis;\n  width: 100px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  text-overflow: ellipsis;\n  min-width: 100px;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -21,7 +21,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  user-select: none;\n  padding: ", ";\n  outline: none;\n  border: 1px solid ", ";\n  border-radius: 4px;\n  font-size: ", ";\n  color: ", ";\n  background-color: ", ";\n  transition: background .2s, color .2s, border .1s;\n  cursor: pointer;\n  transition: .3s ease-in-out;\n  ", "\n  ", "\n  ", "\n  &:disabled {\n    background-color: ", ";\n    cursor: not-allowed;\n    color: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  user-select: none;\n  padding: ", ";\n  overflow: hidden;\n  border: 1px solid ", ";\n  border-radius: 4px;\n  font-size: ", ";\n  color: ", ";\n  background-color: ", ";\n  transition: background .2s, color .2s, border .1s;\n  cursor: pointer;\n  transition: .3s ease-in-out;\n  ", "\n  ", "\n  ", "\n  &:disabled {\n    background-color: ", ";\n    cursor: not-allowed;\n    color: ", ";\n  }\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -51,7 +51,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  &:hover {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n  }\n\n  &:active {\n    transform: scale(0.97);\n    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);\n  }\n\n  &:focus {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  &:hover {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n  }\n\n  &:active {\n    transform: scale(0.97);\n    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);\n    outline: 0;\n  }\n\n  &:focus {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n  }\n  &:enabled {\n    outline: 0;\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;

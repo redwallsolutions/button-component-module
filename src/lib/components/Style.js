@@ -34,11 +34,15 @@ const applyCSSWhenNotDisabled = css`
   &:active {
     transform: scale(0.97);
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);
+    outline: 0;
   }
 
   &:focus {
     background-color: ${props => Color(props.theme.button[props.appearance]).darken(0.2).string()};
     box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);
+  }
+  &:enabled {
+    outline: 0;
   }
 `
 
@@ -74,7 +78,7 @@ export const ButtonComponentStyled = styled.button`
       (props.size === 'medium' && '5px 15px') ||
       (props.size === 'large' && '10px 30px')
     };
-  outline: none;
+  overflow: hidden;
   border: 1px solid ${props=> Color(props.theme.button[props.appearance]).string()};
   border-radius: 4px;
   font-size: ${
@@ -124,5 +128,5 @@ export const ButtonTextStyled = styled.span`
   overflow: hidden;
   display: inline-block;
   text-overflow: ellipsis;
-  width: 100px;
+  min-width: 100px;
 `
