@@ -70,16 +70,16 @@ export const ButtonComponentStyled = styled.button`
   user-select: none;
   padding: ${
     props =>
-      (props.size === 'small' && '5px 15px') ||
-      (props.size === 'medium' && '10px 20px') ||
-      (props.size === 'large' && '15px 40px')
+      (props.size === 'small' && '2.5px 7px') ||
+      (props.size === 'medium' && '5px 15px') ||
+      (props.size === 'large' && '10px 30px')
     };
   outline: none;
   border: 1px solid ${props=> Color(props.theme.button[props.appearance]).string()};
   border-radius: 4px;
   font-size: ${
     props =>
-      (props.size === 'small' && '14px') ||
+      (props.size === 'small' && '13px') ||
       '16px'
   };
   color: ${props=> Color(props.theme.button[props.appearance]).isDark() ? Color(props.theme.button[props.appearance]).lighten(1).lighten(1).opaquer(1).string() : Color(props.theme.button[props.appearance]).darken(0.7).string()};
@@ -118,5 +118,11 @@ export const ButtonIconStyled = styled.span`
   align-items: center;
   padding-top: 1.2px;
   margin${props => props.isBefore ? '-right: 10' : (props.isAfter ? '-left: 10' : ':0')}px;
-
+`
+export const ButtonTextStyled = styled.span`
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  width: 100px;
 `

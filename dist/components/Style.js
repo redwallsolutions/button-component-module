@@ -1,7 +1,17 @@
 import _taggedTemplateLiteral from "@babel/runtime/helpers/esm/taggedTemplateLiteral";
 
+function _templateObject7() {
+  var data = _taggedTemplateLiteral(["\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  text-overflow: ellipsis;\n  width: 100px;\n"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-top: 1.2px;\n  margin", "px;\n\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-top: 1.2px;\n  margin", "px;\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -78,11 +88,11 @@ var applyCSSWhenCircle = css(_templateObject4(), function (props) {
   return props.size === 'small' && '40px' || props.size === 'medium' && '60px' || props.size === 'large' && '80px';
 });
 export var ButtonComponentStyled = styled.button(_templateObject5(), function (props) {
-  return props.size === 'small' && '5px 15px' || props.size === 'medium' && '10px 20px' || props.size === 'large' && '15px 40px';
+  return props.size === 'small' && '2.5px 7px' || props.size === 'medium' && '5px 15px' || props.size === 'large' && '10px 30px';
 }, function (props) {
   return Color(props.theme.button[props.appearance]).string();
 }, function (props) {
-  return props.size === 'small' && '14px' || '16px';
+  return props.size === 'small' && '13px' || '16px';
 }, function (props) {
   return Color(props.theme.button[props.appearance]).isDark() ? Color(props.theme.button[props.appearance]).lighten(1).lighten(1).opaquer(1).string() : Color(props.theme.button[props.appearance]).darken(0.7).string();
 }, function (props) {
@@ -111,3 +121,4 @@ ButtonComponentStyled.defaultProps = {
 export var ButtonIconStyled = styled.span(_templateObject6(), function (props) {
   return props.isBefore ? '-right: 10' : props.isAfter ? '-left: 10' : ':0';
 });
+export var ButtonTextStyled = styled.span(_templateObject7());
