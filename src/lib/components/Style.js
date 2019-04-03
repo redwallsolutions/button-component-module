@@ -40,14 +40,19 @@ const applyCSSWhenNotDisabled = css`
   &:focus {
     background-color: ${props => Color(props.theme.button[props.appearance]).darken(0.2).string()};
     box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);
-  }
-  &:enabled {
     outline: 0;
   }
 `
 
 const applyCSSWhenLoading = css`
-  background-color: ${props => Color(props.theme.button[props.appearance]).desaturate(0.2).string()};
+  background-color: ${props => Color(props.theme.button[props.appearance]).darken(0.2).string()};
+  border-color: ${props => Color(props.theme.button[props.appearance]).darken(0.2).string()};
+  color: ${
+    props=>
+      Color(props.theme.button[props.appearance]).isDark() ?
+        Color(props.theme.button[props.appearance]).lighten(1).string() :
+        Color(props.theme.button[props.appearance]).darken(0).string()
+  };
   cursor: progress;
 `
 
@@ -127,5 +132,4 @@ export const ButtonTextStyled = styled.span`
   overflow: hidden;
   display: inline-block;
   text-overflow: ellipsis;
-  min-width: 100px;
 `

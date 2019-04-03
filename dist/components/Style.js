@@ -1,7 +1,7 @@
 import _taggedTemplateLiteral from "@babel/runtime/helpers/esm/taggedTemplateLiteral";
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  text-overflow: ellipsis;\n  min-width: 100px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  text-overflow: ellipsis;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -41,7 +41,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  background-color: ", ";\n  cursor: progress;\n"]);
+  var data = _taggedTemplateLiteral(["\n  background-color: ", ";\n  border-color: ", ";\n  color: ", ";\n  cursor: progress;\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -51,7 +51,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  &:hover {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n  }\n\n  &:active {\n    transform: scale(0.97);\n    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);\n    outline: 0;\n  }\n\n  &:focus {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n  }\n  &:enabled {\n    outline: 0;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  &:hover {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n  }\n\n  &:active {\n    transform: scale(0.97);\n    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);\n    outline: 0;\n  }\n\n  &:focus {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n    outline: 0;\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -80,7 +80,11 @@ var applyCSSWhenNotDisabled = css(_templateObject2(), function (props) {
   return Color(props.theme.button[props.appearance]).darken(0.2).string();
 });
 var applyCSSWhenLoading = css(_templateObject3(), function (props) {
-  return Color(props.theme.button[props.appearance]).desaturate(0.2).string();
+  return Color(props.theme.button[props.appearance]).darken(0.2).string();
+}, function (props) {
+  return Color(props.theme.button[props.appearance]).darken(0.2).string();
+}, function (props) {
+  return Color(props.theme.button[props.appearance]).isDark() ? Color(props.theme.button[props.appearance]).lighten(1).string() : Color(props.theme.button[props.appearance]).darken(0).string();
 });
 var applyCSSWhenCircle = css(_templateObject4(), function (props) {
   return props.size === 'small' && '40px' || props.size === 'medium' && '60px' || props.size === 'large' && '80px';
