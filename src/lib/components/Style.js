@@ -1,10 +1,8 @@
 import styled, {createGlobalStyle, css} from 'styled-components'
-
 import Poppins from './../assets/fonts/Poppins-Regular.ttf';
-
 import Color from 'color';
 
-export const GlobalStyle = createGlobalStyle`
+export const ButtonGlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: Poppins;
@@ -14,7 +12,6 @@ export const GlobalStyle = createGlobalStyle`
 
   .button-component-module {
     display: inline-block;
-    font-family: Poppins, sans-serif;
     margin: 0.5em;
     position: relative;
   }
@@ -22,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Poppins, sans-serif;
   }
 `
 

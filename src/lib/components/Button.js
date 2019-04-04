@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GlobalStyle } from './Style';
+import { ButtonGlobalStyle } from './Style';
 import ButtonComponent from './ButtonComponent';
 class Button extends Component {
 
@@ -12,7 +12,7 @@ class Button extends Component {
   render() {
     return (
       <React.Fragment>
-        <GlobalStyle/>
+        <ButtonGlobalStyle/>
         <ButtonComponent {...this.props} onClick={this.onClick}>
           {this.props.children}
         </ButtonComponent>
