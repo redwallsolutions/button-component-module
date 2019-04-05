@@ -28,7 +28,7 @@ const theme = theming.variants('mode', 'appearance', {
   secondary: {
     light: {
       color: props => props.theme.secondary || defaultSecondaryLight,
-      contrast: props => props.theme.secondaryContrast || defaultPrimaryContrastLight
+      contrast: props => props.theme.secondaryContrast || defaultSecondaryContrastLight
     },
     dark: {
       color: props => props.theme.secondaryDark || defaultSecondaryDark,

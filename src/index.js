@@ -39,6 +39,16 @@ const buttonsArray = [{
   }
 }, {
   text: 'Subtle'
+},{
+  text: 'With Before Icon',
+  props: {
+    beforeIcon: <FaAngleLeft/>
+  }
+}, {
+  text: 'With After Icon',
+  props: {
+    afterIcon: <FaAngleRight/>
+  }
 }];
 
 const ResetCSS = createGlobalStyle`
@@ -109,11 +119,11 @@ class App extends React.Component {
       <ThemeProvider theme={this.state.theme}>
         <React.Fragment>
           <ResetCSS/>
-          <div style={{padding: '20px',margin: 0, width: '100vw', height: '100vh', transition: 'background-color .5s ease-out', backgroundColor: bodyBackground}}>
+          <div style={{padding: '20px',margin: 0, width: '100vw', height: '100%', transition: 'background-color .5s ease-out', backgroundColor: bodyBackground}}>
             <h2>Button Component Module</h2>
-            <div style={{display:'flex', justifyContent: 'space-around', width: '70%'}}>
+            <div style={{display:'flex', justifyContent: 'space-around', width: '70%', flexWrap: 'wrap'}}>
               <div>
-            <label htmlFor='loading'>Loading...</label>
+                <label htmlFor='loading'>Loading...</label>
                 <input type='checkbox' id='loading' onChange={this.onChangeBasicProps}></input>
               </div>
               <div>
@@ -137,8 +147,8 @@ class App extends React.Component {
               {
                 buttonsArray.map((button,index) => {
                   return (
-                    <React.Fragment>
-                      <Button key={index} loading={this.state.loading} disabled={this.state.disabled} {...button.props}>
+                    <React.Fragment key={index}>
+                      <Button loading={this.state.loading} disabled={this.state.disabled} {...button.props}>
                         {button.text}
                       </Button>
                       <br/>
