@@ -4,7 +4,7 @@ import _possibleConstructorReturn from "@babel/runtime/helpers/esm/possibleConst
 import _getPrototypeOf from "@babel/runtime/helpers/esm/getPrototypeOf";
 import _inherits from "@babel/runtime/helpers/esm/inherits";
 import React, { Component } from 'react';
-import { GlobalStyle } from './Style';
+import { ButtonGlobalStyle } from './Style';
 import ButtonComponent from './ButtonComponent';
 
 var Button =
@@ -37,7 +37,7 @@ function (_Component) {
   _createClass(Button, [{
     key: "render",
     value: function render() {
-      return React.createElement(React.Fragment, null, React.createElement(GlobalStyle, null), React.createElement(ButtonComponent, Object.assign({}, this.props, {
+      return React.createElement(React.Fragment, null, React.createElement(ButtonGlobalStyle, null), React.createElement(ButtonComponent, Object.assign({}, this.props, {
         onClick: this.onClick
       }), this.props.children));
     }

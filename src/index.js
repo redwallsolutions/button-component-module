@@ -4,7 +4,8 @@ import { render } from "react-dom";
 import Button from './lib'
 
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
-import {ThemeProvider} from 'styled-components';
+import {ThemeProvider, createGlobalStyle}  from 'styled-components';
+import Color from 'color';
 
 const onClick = (e) => {
   console.log("clicked: ", e);
@@ -12,7 +13,9 @@ const onClick = (e) => {
 
 const buttonsArray = [{
   text: 'Regular',
-  props: {}
+  props: {
+    appearance:'default'
+  }
 }, {
   text: 'Small',
   props: {}
@@ -21,24 +24,42 @@ const buttonsArray = [{
   props: {}
 }, {
   text: 'Primary',
-  props: {}
+  props: {
+    appearance:'primary'
+  }
 }, {
   text: 'Secondary',
-  props: {}
+  props: {
+    appearance: 'secondary'
+  }
 }, {
   text: 'OnClick',
   props: {
     onClick
   }
+}, {
+  text: 'Subtle'
 }];
 
+const ResetCSS = createGlobalStyle`
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  body * {
+    box-sizing: border-box;
+  }
+`
 class App extends React.Component {
 
   state = {
     loading: false,
     disabled: false,
     theme: {
-      mode: 'light'
+      mode: 'light',
+      primary: undefined,
+      primaryContrast: undefined
     }
   }
 
@@ -54,43 +75,78 @@ class App extends React.Component {
         mode: input.target.id
       }
     });
+  }
 
+  randomizeATheme = () => {
+    const newTheme = {...this.state.theme}
+    function random256(){
+      return Math.floor(Math.random() * 256)
+    }
+    function getRandomColor() {
+      return Color.rgb(random256(), random256(), random256()).string()
+    }
+    newTheme.primary = getRandomColor()
+    newTheme.primaryContrast = Color(newTheme.primary).negate().string();
+    newTheme.secondary = getRandomColor()
+    newTheme.secondaryContrast = Color(newTheme.secondary).negate().string();
+    newTheme.primaryDark = Color(newTheme.primary).darken(0.4).string()
+    newTheme.primaryDarkContrast = Color(newTheme.primaryDark).negate().string()
+    newTheme.secondaryDark = getRandomColor()
+    newTheme.secondaryDarkContrast = Color(newTheme.secondaryDark).negate().string()
+    newTheme.default = getRandomColor()
+    newTheme.defaultContrast = Color(newTheme.default).negate().string()
+    newTheme.defaultDark = getRandomColor()
+    newTheme.defaultDarkContrast = Color(newTheme.defaultDark).negate().string()
+    this.setState({
+      theme: newTheme
+    });
   }
 
 
   render() {
+    const bodyBackground = this.state.theme.mode === 'dark' ? 'rgb(105, 105, 105)' : 'rgba(238, 238, 238, 0.81)'
     return (
       <ThemeProvider theme={this.state.theme}>
         <React.Fragment>
-          <h2>Button Component Module</h2>
-          <div style={{display:'flex'}}>
-            <div>
-              <label htmlFor='loading'>Loading...</label>
-              <input type='checkbox' id='loading' onChange={this.onChangeBasicProps}></input>
+          <ResetCSS/>
+          <div style={{padding: '20px',margin: 0, width: '100vw', height: '100vh', transition: 'background-color .5s ease-out', backgroundColor: bodyBackground}}>
+            <h2>Button Component Module</h2>
+            <div style={{display:'flex', justifyContent: 'space-around', width: '70%'}}>
+              <div>
+            <label htmlFor='loading'>Loading...</label>
+                <input type='checkbox' id='loading' onChange={this.onChangeBasicProps}></input>
+              </div>
+              <div>
+                <label htmlFor='disabled'>Disabled...</label>
+                <input type='checkbox' id='disabled' onChange={this.onChangeBasicProps}></input>
+              </div>
+              <div>
+                <label htmlFor='light'>Theme Light</label>
+                <input type='radio' id='light' name='theme' onChange={this.onChangeTheme}></input>
+              </div>
+              <div>
+                <label htmlFor='dark'>Theme Dark</label>
+                <input type='radio' id='dark' name='theme' onChange={this.onChangeTheme}></input>
+              </div>
+              <div>
+                <label htmlFor='random'>Random Theme</label>
+                <input type='radio' id='random' name='theme' onChange={e => this.randomizeATheme()}></input>
+              </div>
             </div>
-            <div>
-              <label htmlFor='disabled'>Disabled...</label>
-              <input type='checkbox' id='disabled' onChange={this.onChangeBasicProps}></input>
+            <div style={{marginTop: '3em'}}>
+              {
+                buttonsArray.map((button,index) => {
+                  return (
+                    <React.Fragment>
+                      <Button key={index} loading={this.state.loading} disabled={this.state.disabled} {...button.props}>
+                        {button.text}
+                      </Button>
+                      <br/>
+                    </React.Fragment>
+                  )
+                })
+              }
             </div>
-            <div>
-              <label htmlFor='light'>Theme Light</label>
-              <input type='radio' id='light' name='theme' onChange={this.onChangeTheme}></input>
-            </div>
-            <div>
-              <label htmlFor='dark'>Theme Dark</label>
-              <input type='radio' id='dark' name='theme' onChange={this.onChangeTheme}></input>
-            </div>
-          </div>
-          <div>
-            {
-              buttonsArray.map((button,index) => {
-                return (
-                  <Button key={index} loading={this.state.loading} disabled={this.state.disabled} {...button.props}>
-                    {button.text}
-                  </Button>
-                )
-              })
-            }
           </div>
         </React.Fragment>
       </ThemeProvider>

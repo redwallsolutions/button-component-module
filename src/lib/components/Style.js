@@ -5,11 +5,13 @@ import theming from 'styled-theming';
 
 const defaultPrimaryLight = '#E20613'
 const defaultSecondaryLight = '#f8694f'
+const defaultDefaultLight = '#dfe0e2'
 const defaultPrimaryContrastLight = '#f9f9f9'
 const defaultSecondaryContrastLight = '#fff'
-const defaultPrimaryDark = '#0f0503'
-const defaultSecondaryDark = '#591c1a'
-const defaultPrimaryContrastDark = '#cadbc0'
+const defaultDefaultLightContrast = '#2e3439'
+const defaultPrimaryDark = 'rgba(85, 95, 98, 1)'
+const defaultSecondaryDark = 'rgba(92, 59, 59, 1)'
+const defaultPrimaryContrastDark = '#fffaf9'
 const defaultSecondaryContrastDark = '#f7f0f0'
 
 const theme = theming.variants('mode', 'appearance', {
@@ -21,6 +23,26 @@ const theme = theming.variants('mode', 'appearance', {
     dark: {
       color: props => props.theme.primaryDark || defaultPrimaryDark,
       contrast: props => props.theme.primaryDarkContrast || defaultPrimaryContrastDark
+    }
+  },
+  secondary: {
+    light: {
+      color: props => props.theme.secondary || defaultSecondaryLight,
+      contrast: props => props.theme.secondaryContrast || defaultPrimaryContrastLight
+    },
+    dark: {
+      color: props => props.theme.secondaryDark || defaultSecondaryDark,
+      contrast: props => props.theme.secondaryDarkContrast || defaultSecondaryContrastDark
+    }
+  },
+  default: {
+    light: {
+      color: props => props.theme.default || defaultDefaultLight,
+      contrast: props => props.theme.defaultContrast || defaultDefaultLightContrast
+    },
+    dark: {
+      color: props => props.theme.defaultDark || Color(defaultDefaultLight).darken(0.1).string(),
+      contrast: props => props.theme.defaultDarkContrast || props.theme.defaultDefaultLightContrast
     }
   }
 })
@@ -51,12 +73,12 @@ const disabledButton = css`
   cursor:not-allowed;
 `
 const hoveredButton = css`
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.2);
   background-color: ${props => Color(theme(props).color(props)).alpha(0.8).string()};
 `
 
 const activeButton = css`
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3s);
+  box-shadow: 0 2px 10px -1px rgba(0,0,0,0.2);
   background-color: ${props => Color(theme(props).color(props)).darken(0.2).string()};
 `
 
@@ -68,18 +90,17 @@ const ButtonComponentStyled = styled.button`
   cursor: pointer;
   overflow: hidden;
   border-radius: 4px;
-  box-shadow: 0 2.5px 7.5px rgba(0,0,0,0.2);
+  box-shadow: 0 2.5px 7.5px 0 rgba(0,0,0,0.15);
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
+  border: 0.3px solid rgba(0,0,0,0.05);
   opacity: 1;
   background-color: ${props => theme(props).color};
   color: ${props => theme(props).contrast};
 
   &:enabled {
     outline: 0;
-    border: none;
   }
 
   &:disabled {
@@ -96,7 +117,7 @@ const ButtonComponentStyled = styled.button`
 `
 
 ButtonComponentStyled.defaultProps = {
-  appearance: 'primary',
+  appearance: 'default',
   theme: {
     mode: 'light'
   }
