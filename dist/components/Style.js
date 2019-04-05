@@ -11,7 +11,7 @@ function _templateObject10() {
 }
 
 function _templateObject9() {
-  var data = _taggedTemplateLiteral(["\n  width: ", ";\n  height: ", ";\n  padding: 10px;\n  border-radius: 50%;\n"]);
+  var data = _taggedTemplateLiteral(["\n  transition: opacity .3s ease-in-out, transform .3s ease-in-out;\n  opacity: 1;\n  visibility: visible;\n  transform: scale(1);\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  text-overflow: ellipsis;\n  font-weight: bold;\n  line-height: 18px;\n  font-size: 14px;\n  letter-spacing: .4px;\n  ", "\n"]);
 
   _templateObject9 = function _templateObject9() {
     return data;
@@ -21,7 +21,7 @@ function _templateObject9() {
 }
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n  background-color: ", ";\n  border-color: ", ";\n  color: ", ";\n  cursor: progress;\n"]);
+  var data = _taggedTemplateLiteral(["\n  transition: all .3s ease-out;\n  position: absolute;\n  visibility: hidden;\n  opacity: 0;\n  transform: scale(0);\n  ", "\n  div {\n    border-color: ", ";\n    border-bottom-color: transparent;\n  }\n"]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -31,7 +31,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  &:hover {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n  }\n\n  &:active {\n    transform: scale(0.97);\n    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);\n    outline: 0;\n  }\n\n  &:focus {\n    background-color: ", ";\n    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);\n    outline: 0;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  opacity: 0;\n  transform: scale(0);\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -41,7 +41,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  text-overflow: ellipsis;\n  font-weight: bold;\n  line-height: 18px;\n  font-size: 14px;\n  letter-spacing: .4px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  visibility: visible;\n  opacity: 1;\n  transform: scale(1);\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -114,6 +114,12 @@ var defaultPrimaryDark = 'rgba(85, 95, 98, 1)';
 var defaultSecondaryDark = 'rgba(92, 59, 59, 1)';
 var defaultPrimaryContrastDark = '#fffaf9';
 var defaultSecondaryContrastDark = '#f7f0f0';
+var defaultTheme = {
+  appearance: 'default',
+  theme: {
+    mode: 'light'
+  }
+};
 var theme = theming.variants('mode', 'appearance', {
   primary: {
     light: {
@@ -139,7 +145,7 @@ var theme = theming.variants('mode', 'appearance', {
         return props.theme.secondary || defaultSecondaryLight;
       },
       contrast: function contrast(props) {
-        return props.theme.secondaryContrast || defaultPrimaryContrastLight;
+        return props.theme.secondaryContrast || defaultSecondaryContrastLight;
       }
     },
     dark: {
@@ -183,31 +189,22 @@ var ButtonComponentStyled = styled.button(_templateObject5(), function (props) {
 }, function (props) {
   return theme(props).contrast;
 }, disabledButton, hoveredButton, activeButton);
-ButtonComponentStyled.defaultProps = {
-  appearance: 'default',
-  theme: {
-    mode: 'light'
-  }
-};
+ButtonComponentStyled.defaultProps = defaultTheme;
 export { ButtonComponentStyled };
-export var ButtonTextStyled = styled.span(_templateObject6());
-var applyCSSWhenNotDisabled = css(_templateObject7(), function (props) {
-  return Color(props.theme.button[props.appearance]).lighten(0.05).string();
+var loadingSpinner = css(_templateObject6());
+var loadingButtonText = css(_templateObject7());
+var LoaderContainer = styled.div(_templateObject8(), function (props) {
+  return props.loading && loadingSpinner;
 }, function (props) {
-  return Color(props.theme.button[props.appearance]).darken(0.2).string();
+  return theme(props).contrast;
 });
-var applyCSSWhenLoading = css(_templateObject8(), function (props) {
-  return Color(props.theme.button[props.appearance]).darken(0.2).string();
-}, function (props) {
-  return Color(props.theme.button[props.appearance]).darken(0.2).string();
-}, function (props) {
-  return Color(props.theme.button[props.appearance]).isDark() ? Color(props.theme.button[props.appearance]).lighten(1).string() : Color(props.theme.button[props.appearance]).darken(0).string();
+LoaderContainer.defaultProps = defaultTheme;
+export { LoaderContainer };
+var ButtonTextStyled = styled.span(_templateObject9(), function (props) {
+  return props.loading && loadingButtonText;
 });
-var applyCSSWhenCircle = css(_templateObject9(), function (props) {
-  return props.size === 'small' && '40px' || props.size === 'medium' && '60px' || props.size === 'large' && '80px';
-}, function (props) {
-  return props.size === 'small' && '40px' || props.size === 'medium' && '60px' || props.size === 'large' && '80px';
-});
+ButtonTextStyled.defaultProps = defaultTheme;
+export { ButtonTextStyled };
 export var ButtonIconStyled = styled.span(_templateObject10(), function (props) {
   return props.isBefore ? '-right: 10' : props.isAfter ? '-left: 10' : ':0';
 });

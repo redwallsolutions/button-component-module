@@ -14,6 +14,13 @@ const defaultSecondaryDark = 'rgba(92, 59, 59, 1)'
 const defaultPrimaryContrastDark = '#fffaf9'
 const defaultSecondaryContrastDark = '#f7f0f0'
 
+const defaultTheme = {
+  appearance: 'default',
+  theme: {
+    mode: 'light'
+  }
+}
+
 const theme = theming.variants('mode', 'appearance', {
   primary: {
     light: {
@@ -116,16 +123,43 @@ const ButtonComponentStyled = styled.button`
   }
 `
 
-ButtonComponentStyled.defaultProps = {
-  appearance: 'default',
-  theme: {
-    mode: 'light'
-  }
-}
+ButtonComponentStyled.defaultProps = defaultTheme
 
 export {ButtonComponentStyled}
 
-export const ButtonTextStyled = styled.span`
+const loadingSpinner = css`
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+`
+
+const loadingButtonText = css`
+  opacity: 0;
+  transform: scale(0);
+`
+
+const LoaderContainer = styled.div`
+  transition: all .3s ease-out;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  ${props => props.loading && loadingSpinner}
+  div {
+    border-color: ${props => theme(props).contrast};
+    border-bottom-color: transparent;
+  }
+`
+LoaderContainer.defaultProps = defaultTheme
+
+export {LoaderContainer}
+
+
+const ButtonTextStyled = styled.span`
+  transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
@@ -134,55 +168,12 @@ export const ButtonTextStyled = styled.span`
   line-height: 18px;
   font-size: 14px;
   letter-spacing: .4px;
+  ${props => props.loading && loadingButtonText}
 `
 
-const applyCSSWhenNotDisabled = css`
-  &:hover {
-    background-color: ${props => Color(props.theme.button[props.appearance]).lighten(0.05).string()};
-    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);
-  }
+ButtonTextStyled.defaultProps = defaultTheme
 
-  &:active {
-    transform: scale(0.97);
-    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);
-    outline: 0;
-  }
-
-  &:focus {
-    background-color: ${props => Color(props.theme.button[props.appearance]).darken(0.2).string()};
-    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);
-    outline: 0;
-  }
-`
-
-const applyCSSWhenLoading = css`
-  background-color: ${props => Color(props.theme.button[props.appearance]).darken(0.2).string()};
-  border-color: ${props => Color(props.theme.button[props.appearance]).darken(0.2).string()};
-  color: ${
-    props=>
-      Color(props.theme.button[props.appearance]).isDark() ?
-        Color(props.theme.button[props.appearance]).lighten(1).string() :
-        Color(props.theme.button[props.appearance]).darken(0).string()
-  };
-  cursor: progress;
-`
-
-const applyCSSWhenCircle = css`
-  width: ${
-    props =>
-      (props.size === 'small' && '40px') ||
-      (props.size === 'medium' && '60px') ||
-      (props.size === 'large' && '80px')
-  };
-  height: ${
-    props =>
-      (props.size === 'small' && '40px') ||
-      (props.size === 'medium' && '60px') ||
-      (props.size === 'large' && '80px')
-  };
-  padding: 10px;
-  border-radius: 50%;
-`
+export {ButtonTextStyled}
 
 export const ButtonIconStyled = styled.span`
   display: flex;

@@ -49,6 +49,11 @@ const buttonsArray = [{
   props: {
     afterIcon: <FaAngleRight/>
   }
+}, {
+  text: 'I have loader!',
+  props: {
+    appearance: 'primary'
+  }
 }];
 
 const ResetCSS = createGlobalStyle`
@@ -66,10 +71,9 @@ class App extends React.Component {
   state = {
     loading: false,
     disabled: false,
+    singleLoading: true,
     theme: {
-      mode: 'light',
-      primary: undefined,
-      primaryContrast: undefined
+      mode: 'light'
     }
   }
 
@@ -123,19 +127,19 @@ class App extends React.Component {
             <h2>Button Component Module</h2>
             <div style={{display:'flex', justifyContent: 'space-around', width: '70%', flexWrap: 'wrap'}}>
               <div>
-                <label htmlFor='loading'>Loading...</label>
+                <label htmlFor='loading'>Loading</label>
                 <input type='checkbox' id='loading' onChange={this.onChangeBasicProps}></input>
               </div>
               <div>
-                <label htmlFor='disabled'>Disabled...</label>
+                <label htmlFor='disabled'>Disabled</label>
                 <input type='checkbox' id='disabled' onChange={this.onChangeBasicProps}></input>
               </div>
               <div>
-                <label htmlFor='light'>Theme Light</label>
+                <label htmlFor='light'>Light Theme</label>
                 <input type='radio' id='light' name='theme' onChange={this.onChangeTheme}></input>
               </div>
               <div>
-                <label htmlFor='dark'>Theme Dark</label>
+                <label htmlFor='dark'>Dark Theme</label>
                 <input type='radio' id='dark' name='theme' onChange={this.onChangeTheme}></input>
               </div>
               <div>

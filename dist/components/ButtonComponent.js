@@ -1,6 +1,7 @@
 import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
 import React from 'react';
-import { ButtonComponentStyled, ButtonIconStyled, ButtonTextStyled } from './Style';
+import { ButtonComponentStyled, ButtonIconStyled, ButtonTextStyled, LoaderContainer } from './Style';
+import { ClipLoader } from 'react-spinners';
 
 var ButtonComponent = function ButtonComponent(props) {
   var hasChildren = props.children ? true : false;
@@ -9,7 +10,8 @@ var ButtonComponent = function ButtonComponent(props) {
 
   var title = props.title,
       type = props.type,
-      rest = _objectWithoutProperties(props, ["title", "type"]);
+      loading = props.loading,
+      rest = _objectWithoutProperties(props, ["title", "type", "loading"]);
 
   return React.createElement("div", {
     className: "button-component-module"
@@ -18,7 +20,14 @@ var ButtonComponent = function ButtonComponent(props) {
     type: type || 'button'
   }), hasBeforeIcon && React.createElement(ButtonIconStyled, {
     isBefore: hasChildren
-  }, props.beforeIcon), hasChildren && React.createElement(ButtonTextStyled, null, props.children, props.loading && '...'), hasAfterIcon && React.createElement(ButtonIconStyled, {
+  }, props.beforeIcon), hasChildren && React.createElement(React.Fragment, null, React.createElement(ButtonTextStyled, {
+    loading: props.loading
+  }, props.children), React.createElement(LoaderContainer, {
+    loading: props.loading,
+    appearance: props.appearance
+  }, React.createElement(ClipLoader, {
+    size: 14
+  }))), hasAfterIcon && React.createElement(ButtonIconStyled, {
     isAfter: hasChildren
   }, props.afterIcon)));
 };
