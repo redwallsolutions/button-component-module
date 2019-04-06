@@ -15,11 +15,14 @@ const defaultPrimaryContrastDark = '#fffaf9'
 const defaultSecondaryContrastDark = '#f7f0f0'
 
 const defaultTheme = {
-  appearance: 'default',
   theme: {
     mode: 'light'
   }
 }
+
+const defaultProps = {...defaultTheme}
+defaultProps.appearance = 'default'
+defaultProps.size = 'medium'
 
 const theme = theming.variants('mode', 'appearance', {
   primary: {
@@ -89,11 +92,15 @@ const activeButton = css`
   background-color: ${props => Color(theme(props).color(props)).darken(0.2).string()};
 `
 
+const applySize = css`
+  min-width: ${props => props.size === 'small' ? 54 : props.size === ''}
+`
+
 const ButtonComponentStyled = styled.button`
   transition: all .2s ease-in-out;
-  min-width: 64px;
-  max-height: 36px;
-  padding: 8px 16px;
+  min-width: ${props => props.size === 'medium' ? 64 : props.size === 'small' ? 54 : 74}px;
+  max-height: ${props => props.size === 'medium' ? 36 : props.size === 'small' ? 30 : 42}px;
+  padding: ${props => props.size === 'medium' ? '8px 16px' : props.size === 'small' ? '6px 12px': '9px 19px'};
   cursor: pointer;
   overflow: hidden;
   border-radius: 4px;
@@ -105,6 +112,7 @@ const ButtonComponentStyled = styled.button`
   opacity: 1;
   background-color: ${props => theme(props).color};
   color: ${props => theme(props).contrast};
+
 
   &:enabled {
     outline: 0;
@@ -123,7 +131,7 @@ const ButtonComponentStyled = styled.button`
   }
 `
 
-ButtonComponentStyled.defaultProps = defaultTheme
+ButtonComponentStyled.defaultProps = defaultProps
 
 export {ButtonComponentStyled}
 
@@ -150,7 +158,7 @@ const LoaderContainer = styled.div`
     border-bottom-color: transparent;
   }
 `
-LoaderContainer.defaultProps = defaultTheme
+LoaderContainer.defaultProps = defaultProps
 
 export {LoaderContainer}
 
@@ -171,7 +179,7 @@ const ButtonTextStyled = styled.span`
   ${props => props.loading && loadingButtonText}
 `
 
-ButtonTextStyled.defaultProps = defaultTheme
+ButtonTextStyled.defaultProps = defaultProps
 
 export {ButtonTextStyled}
 

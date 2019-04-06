@@ -18,10 +18,14 @@ const buttonsArray = [{
   }
 }, {
   text: 'Small',
-  props: {}
+  props: {
+    size: 'small'
+  }
 }, {
   text: 'Large',
-  props: {}
+  props: {
+    size: 'large'
+  }
 }, {
   text: 'Primary',
   props: {
