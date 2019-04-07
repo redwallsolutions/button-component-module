@@ -1,18 +1,8 @@
 import _taggedTemplateLiteral from "@babel/runtime/helpers/esm/taggedTemplateLiteral";
 import _objectSpread from "@babel/runtime/helpers/esm/objectSpread";
 
-function _templateObject11() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin", "px;\n"]);
-
-  _templateObject11 = function _templateObject11() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject10() {
-  var data = _taggedTemplateLiteral(["\n  transition: opacity .3s ease-in-out, transform .3s ease-in-out;\n  opacity: 1;\n  visibility: visible;\n  transform: scale(1);\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  text-overflow: ellipsis;\n  font-weight: bold;\n  line-height: 18px;\n  font-size: 14px;\n  letter-spacing: .4px;\n  ", "\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin", "px;\n"]);
 
   _templateObject10 = function _templateObject10() {
     return data;
@@ -22,7 +12,7 @@ function _templateObject10() {
 }
 
 function _templateObject9() {
-  var data = _taggedTemplateLiteral(["\n  transition: all .3s ease-out;\n  position: absolute;\n  visibility: hidden;\n  opacity: 0;\n  transform: scale(0);\n  ", "\n  div {\n    border-color: ", ";\n    border-bottom-color: transparent;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  transition: opacity .3s ease-in-out, transform .3s ease-in-out;\n  opacity: 1;\n  visibility: visible;\n  transform: scale(1);\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  text-overflow: ellipsis;\n  font-weight: bold;\n  line-height: 18px;\n  font-size: 14px;\n  letter-spacing: .4px;\n  ", "\n"]);
 
   _templateObject9 = function _templateObject9() {
     return data;
@@ -32,7 +22,7 @@ function _templateObject9() {
 }
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n  opacity: 0;\n  transform: scale(0);\n"]);
+  var data = _taggedTemplateLiteral(["\n  transition: all .3s ease-out;\n  position: absolute;\n  visibility: hidden;\n  opacity: 0;\n  transform: scale(0);\n  ", "\n  div {\n    border-color: ", ";\n    border-bottom-color: transparent;\n  }\n"]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -42,7 +32,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  visibility: visible;\n  opacity: 1;\n  transform: scale(1);\n"]);
+  var data = _taggedTemplateLiteral(["\n  opacity: 0;\n  transform: scale(0);\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -52,7 +42,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  transition: all .2s ease-in-out;\n  min-width: ", "px;\n  max-height: ", "px;\n  padding: ", ";\n  cursor: pointer;\n  overflow: hidden;\n  border-radius: 4px;\n  box-shadow: 0 2.5px 7.5px 0 rgba(0,0,0,0.15);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 0.3px solid rgba(0,0,0,0.05);\n  opacity: 1;\n  background-color: ", ";\n  color: ", ";\n\n\n  &:enabled {\n    outline: 0;\n  }\n\n  &:disabled {\n    ", "\n  }\n\n  &:hover:not([disabled]) {\n    ", "\n  }\n\n  &:active:not([disabled]) {\n    ", "\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  visibility: visible;\n  opacity: 1;\n  transform: scale(1);\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -62,7 +52,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  min-width: ", "\n"]);
+  var data = _taggedTemplateLiteral(["\n  transition: all .2s ease-in-out;\n  min-width: ", "px;\n  max-height: ", "px;\n  padding: ", ";\n  cursor: pointer;\n  overflow: hidden;\n  border-radius: 4px;\n  box-shadow: 0 2.5px 7.5px 0 rgba(0,0,0,0.15);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 0.3px solid rgba(0,0,0,0.05);\n  opacity: 1;\n  background-color: ", ";\n  color: ", ";\n\n\n  &:enabled {\n    outline: 0;\n  }\n\n  &:disabled {\n    ", "\n  }\n\n  &:hover:not([disabled]) {\n    ", "\n  }\n\n  &:active:not([disabled]) {\n    ", "\n  }\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -114,17 +104,8 @@ function _templateObject() {
 import styled, { createGlobalStyle, css } from 'styled-components';
 import Poppins from './../assets/fonts/Poppins-Regular.ttf';
 import Color from 'color';
+import RedwallColorPallete from 'color-pallete-component-module';
 import theming from 'styled-theming';
-var defaultPrimaryLight = '#E20613';
-var defaultSecondaryLight = '#f8694f';
-var defaultDefaultLight = '#dfe0e2';
-var defaultPrimaryContrastLight = '#f9f9f9';
-var defaultSecondaryContrastLight = '#fff';
-var defaultDefaultLightContrast = '#2e3439';
-var defaultPrimaryDark = 'rgba(85, 95, 98, 1)';
-var defaultSecondaryDark = 'rgba(92, 59, 59, 1)';
-var defaultPrimaryContrastDark = '#fffaf9';
-var defaultSecondaryContrastDark = '#f7f0f0';
 var defaultTheme = {
   theme: {
     mode: 'light'
@@ -139,54 +120,54 @@ var theme = theming.variants('mode', 'appearance', {
   primary: {
     light: {
       color: function color(props) {
-        return props.theme.primary || defaultPrimaryLight;
+        return props.theme.primary || RedwallColorPallete.primary;
       },
       contrast: function contrast(props) {
-        return props.theme.primaryContrast || defaultPrimaryContrastLight;
+        return props.theme.primaryContrast || RedwallColorPallete.primaryContrast;
       }
     },
     dark: {
       color: function color(props) {
-        return props.theme.primaryDark || defaultPrimaryDark;
+        return props.theme.primaryDark || RedwallColorPallete.primaryDark;
       },
       contrast: function contrast(props) {
-        return props.theme.primaryDarkContrast || defaultPrimaryContrastDark;
+        return props.theme.primaryDarkContrast || RedwallColorPallete.primaryDarkContrast;
       }
     }
   },
   secondary: {
     light: {
       color: function color(props) {
-        return props.theme.secondary || defaultSecondaryLight;
+        return props.theme.secondary || RedwallColorPallete.secondary;
       },
       contrast: function contrast(props) {
-        return props.theme.secondaryContrast || defaultSecondaryContrastLight;
+        return props.theme.secondaryContrast || RedwallColorPallete.secondaryContrast;
       }
     },
     dark: {
       color: function color(props) {
-        return props.theme.secondaryDark || defaultSecondaryDark;
+        return props.theme.secondaryDark || RedwallColorPallete.secondaryDark;
       },
       contrast: function contrast(props) {
-        return props.theme.secondaryDarkContrast || defaultSecondaryContrastDark;
+        return props.theme.secondaryDarkContrast || RedwallColorPallete.secondaryDarkContrast;
       }
     }
   },
   default: {
     light: {
       color: function color(props) {
-        return props.theme.default || defaultDefaultLight;
+        return props.theme.default || RedwallColorPallete.neutral;
       },
       contrast: function contrast(props) {
-        return props.theme.defaultContrast || defaultDefaultLightContrast;
+        return props.theme.defaultContrast || RedwallColorPallete.neutralContrast;
       }
     },
     dark: {
       color: function color(props) {
-        return props.theme.defaultDark || Color(defaultDefaultLight).darken(0.1).string();
+        return props.theme.defaultDark || RedwallColorPallete.neutralDark;
       },
       contrast: function contrast(props) {
-        return props.theme.defaultDarkContrast || props.theme.defaultDefaultLightContrast;
+        return props.theme.defaultDarkContrast || RedwallColorPallete.neutralDarkContrast;
       }
     }
   }
@@ -199,10 +180,7 @@ var hoveredButton = css(_templateObject3(), function (props) {
 var activeButton = css(_templateObject4(), function (props) {
   return Color(theme(props).color(props)).darken(0.2).string();
 });
-var applySize = css(_templateObject5(), function (props) {
-  return props.size === 'small' ? 54 : props.size === '';
-});
-var ButtonComponentStyled = styled.button(_templateObject6(), function (props) {
+var ButtonComponentStyled = styled.button(_templateObject5(), function (props) {
   return props.size === 'medium' ? 64 : props.size === 'small' ? 54 : 74;
 }, function (props) {
   return props.size === 'medium' ? 36 : props.size === 'small' ? 30 : 42;
@@ -215,20 +193,20 @@ var ButtonComponentStyled = styled.button(_templateObject6(), function (props) {
 }, disabledButton, hoveredButton, activeButton);
 ButtonComponentStyled.defaultProps = defaultProps;
 export { ButtonComponentStyled };
-var loadingSpinner = css(_templateObject7());
-var loadingButtonText = css(_templateObject8());
-var LoaderContainer = styled.div(_templateObject9(), function (props) {
+var loadingSpinner = css(_templateObject6());
+var loadingButtonText = css(_templateObject7());
+var LoaderContainer = styled.div(_templateObject8(), function (props) {
   return props.loading && loadingSpinner;
 }, function (props) {
   return theme(props).contrast;
 });
 LoaderContainer.defaultProps = defaultProps;
 export { LoaderContainer };
-var ButtonTextStyled = styled.span(_templateObject10(), function (props) {
+var ButtonTextStyled = styled.span(_templateObject9(), function (props) {
   return props.loading && loadingButtonText;
 });
 ButtonTextStyled.defaultProps = defaultProps;
 export { ButtonTextStyled };
-export var ButtonIconStyled = styled.span(_templateObject11(), function (props) {
+export var ButtonIconStyled = styled.span(_templateObject10(), function (props) {
   return props.isBefore ? '-right: 10' : props.isAfter ? '-left: 10' : ':0';
 });

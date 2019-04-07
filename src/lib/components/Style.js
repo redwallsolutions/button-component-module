@@ -1,18 +1,8 @@
 import styled, {createGlobalStyle, css} from 'styled-components'
 import Poppins from './../assets/fonts/Poppins-Regular.ttf';
 import Color from 'color';
+import RedwallColorPallete from 'color-pallete-component-module'
 import theming from 'styled-theming';
-
-const defaultPrimaryLight = '#E20613'
-const defaultSecondaryLight = '#f8694f'
-const defaultDefaultLight = '#dfe0e2'
-const defaultPrimaryContrastLight = '#f9f9f9'
-const defaultSecondaryContrastLight = '#fff'
-const defaultDefaultLightContrast = '#2e3439'
-const defaultPrimaryDark = 'rgba(85, 95, 98, 1)'
-const defaultSecondaryDark = 'rgba(92, 59, 59, 1)'
-const defaultPrimaryContrastDark = '#fffaf9'
-const defaultSecondaryContrastDark = '#f7f0f0'
 
 const defaultTheme = {
   theme: {
@@ -27,32 +17,32 @@ defaultProps.size = 'medium'
 const theme = theming.variants('mode', 'appearance', {
   primary: {
     light: {
-      color: props => props.theme.primary || defaultPrimaryLight,
-      contrast: props => props.theme.primaryContrast || defaultPrimaryContrastLight
+      color: props => props.theme.primary || RedwallColorPallete.primary,
+      contrast: props => props.theme.primaryContrast || RedwallColorPallete.primaryContrast
     },
     dark: {
-      color: props => props.theme.primaryDark || defaultPrimaryDark,
-      contrast: props => props.theme.primaryDarkContrast || defaultPrimaryContrastDark
+      color: props => props.theme.primaryDark || RedwallColorPallete.primaryDark,
+      contrast: props => props.theme.primaryDarkContrast || RedwallColorPallete.primaryDarkContrast
     }
   },
   secondary: {
     light: {
-      color: props => props.theme.secondary || defaultSecondaryLight,
-      contrast: props => props.theme.secondaryContrast || defaultSecondaryContrastLight
+      color: props => props.theme.secondary || RedwallColorPallete.secondary,
+      contrast: props => props.theme.secondaryContrast || RedwallColorPallete.secondaryContrast
     },
     dark: {
-      color: props => props.theme.secondaryDark || defaultSecondaryDark,
-      contrast: props => props.theme.secondaryDarkContrast || defaultSecondaryContrastDark
+      color: props => props.theme.secondaryDark || RedwallColorPallete.secondaryDark,
+      contrast: props => props.theme.secondaryDarkContrast || RedwallColorPallete.secondaryDarkContrast
     }
   },
   default: {
     light: {
-      color: props => props.theme.default || defaultDefaultLight,
-      contrast: props => props.theme.defaultContrast || defaultDefaultLightContrast
+      color: props => props.theme.default || RedwallColorPallete.neutral,
+      contrast: props => props.theme.defaultContrast || RedwallColorPallete.neutralContrast
     },
     dark: {
-      color: props => props.theme.defaultDark || Color(defaultDefaultLight).darken(0.1).string(),
-      contrast: props => props.theme.defaultDarkContrast || props.theme.defaultDefaultLightContrast
+      color: props => props.theme.defaultDark || RedwallColorPallete.neutralDark,
+      contrast: props => props.theme.defaultDarkContrast || RedwallColorPallete.neutralDarkContrast
     }
   }
 })
@@ -90,10 +80,6 @@ const hoveredButton = css`
 const activeButton = css`
   box-shadow: 0 2px 10px -1px rgba(0,0,0,0.2);
   background-color: ${props => Color(theme(props).color(props)).darken(0.2).string()};
-`
-
-const applySize = css`
-  min-width: ${props => props.size === 'small' ? 54 : props.size === ''}
 `
 
 const ButtonComponentStyled = styled.button`
