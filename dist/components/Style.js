@@ -52,7 +52,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  transition: all .2s ease-in-out;\n  min-width: ", "px;\n  max-height: ", "px;\n  padding: ", ";\n  cursor: pointer;\n  overflow: hidden;\n  border-radius: 4px;\n  box-shadow: 0 2.5px 7.5px 0 rgba(0,0,0,0.15);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 0.3px solid rgba(0,0,0,0.05);\n  opacity: 1;\n  background-color: ", ";\n  color: ", ";\n\n\n  &:enabled {\n    outline: 0;\n  }\n\n  &:disabled {\n    ", "\n  }\n\n  &:hover:not([disabled]) {\n    ", "\n  }\n\n  &:active:not([disabled]) {\n    ", "\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  transition: all .2s ease-in-out;\n  min-width: ", "px;\n  max-height: ", "px;\n  padding: ", ";\n  cursor: pointer;\n  overflow: hidden;\n  border-radius: 4px;\n  box-shadow: 0 2.5px 7.5px 0 rgba(0,0,0,0.15);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 0.3px solid rgba(0,0,0,0.05);\n  opacity: 1;\n  background-color: ", ";\n  color: ", ";\n\n\n  &:enabled {\n    outline: 0;\n  }\n\n  &:disabled {\n    ", "\n  }\n\n  &:hover:not([disabled]) {\n    ", "\n  }\n\n  &:focus:not([disabled]) {\n    ", "\n  }\n\n  &:active:not([disabled]) {\n    ", "\n  }\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -190,7 +190,7 @@ var ButtonComponentStyled = styled.button(_templateObject5(), function (props) {
   return theme(props).color;
 }, function (props) {
   return theme(props).contrast;
-}, disabledButton, hoveredButton, activeButton);
+}, disabledButton, hoveredButton, hoveredButton, activeButton);
 ButtonComponentStyled.defaultProps = defaultProps;
 export { ButtonComponentStyled };
 var loadingSpinner = css(_templateObject6());

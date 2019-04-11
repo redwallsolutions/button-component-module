@@ -112,6 +112,10 @@ const ButtonComponentStyled = styled.button`
     ${hoveredButton}
   }
 
+  &:focus:not([disabled]) {
+    ${hoveredButton}
+  }
+
   &:active:not([disabled]) {
     ${activeButton}
   }
