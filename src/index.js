@@ -107,14 +107,14 @@ class App extends React.Component {
     newTheme.primaryContrast = Color(newTheme.primary).negate().string();
     newTheme.secondary = getRandomColor()
     newTheme.secondaryContrast = Color(newTheme.secondary).negate().string();
-    newTheme.primaryDark = Color(newTheme.primary).darken(0.4).string()
-    newTheme.primaryDarkContrast = Color(newTheme.primaryDark).negate().string()
-    newTheme.secondaryDark = getRandomColor()
-    newTheme.secondaryDarkContrast = Color(newTheme.secondaryDark).negate().string()
     newTheme.default = getRandomColor()
     newTheme.defaultContrast = Color(newTheme.default).negate().string()
+    newTheme.primaryDark = Color(newTheme.primary).darken(0.4).string()
+    newTheme.primaryContrastDark = Color(newTheme.primaryDark).negate().string()
+    newTheme.secondaryDark = getRandomColor()
+    newTheme.secondaryContrastDark = Color(newTheme.secondaryDark).negate().string()
     newTheme.defaultDark = getRandomColor()
-    newTheme.defaultDarkContrast = Color(newTheme.defaultDark).negate().string()
+    newTheme.defaultContrastDark = Color(newTheme.defaultDark).negate().string()
     this.setState({
       theme: newTheme
     });
@@ -124,7 +124,7 @@ class App extends React.Component {
   render() {
     const bodyBackground = this.state.theme.mode === 'dark' ? 'rgb(105, 105, 105)' : 'rgba(238, 238, 238, 0.81)'
     return (
-      <ThemeProvider theme={this.state.theme}>
+      <ThemeProvider theme={{...this.state.theme, primaryContrastDark: '#2b324c', primaryDark: '#ebebeb', secondaryDark: 'red', secondaryContrastDark: 'blue'}}>
         <React.Fragment>
           <ResetCSS/>
           <div style={{padding: '20px',margin: 0, width: '100vw', height: '100%', transition: 'background-color .5s ease-out', backgroundColor: bodyBackground}}>

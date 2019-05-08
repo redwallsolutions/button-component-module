@@ -10,6 +10,7 @@ class Button extends Component {
   }
 
   render() {
+    console.log(this.props.appearance);
     return (
       <>
         <ButtonGlobalStyle/>
@@ -21,7 +22,8 @@ class Button extends Component {
   }
 }
 
-Button.defaulProps = {
+Button.defaultProps = {
+  size: 'md',
   appearance: 'default'
 }
 

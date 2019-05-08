@@ -15,7 +15,6 @@ defaultProps.appearance = 'default'
 defaultProps.size = 'medium'
 
 export const ButtonGlobalStyle = createGlobalStyle`
-
   .button-component-module {
     display: inline-block;
     margin: 0.5em;
@@ -39,6 +38,7 @@ const activeButton = css`
 `
 
 const ButtonComponentStyled = styled.button`
+  ${props => console.log(props.appearance, props.theme.mode, theme(props).color(props))}
   transition: all .2s ease-in-out;
   min-width: ${props => props.size === 'medium' ? 64 : props.size === 'small' ? 54 : 74}px;
   max-height: ${props => props.size === 'medium' ? 36 : props.size === 'small' ? 30 : 42}px;
