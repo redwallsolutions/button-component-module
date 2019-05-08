@@ -46,4 +46,7 @@ function (_Component) {
   return Button;
 }(Component);
 
+Button.defaulProps = {
+  appearance: 'default'
+};
 export default Button;

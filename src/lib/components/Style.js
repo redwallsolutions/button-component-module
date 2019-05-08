@@ -100,7 +100,7 @@ const LoaderContainer = styled.div`
   transform: scale(0);
   ${props => props.loading && loadingSpinner}
   div {
-    border-color: ${props => theme(props).contrast};
+    border-color: ${props => props.appearance === 'default' && props.theme.mode === 'light' ? theme(props).color : theme(props).contrast};
     border-bottom-color: transparent;
   }
 `

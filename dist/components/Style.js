@@ -141,7 +141,7 @@ var loadingButtonText = css(_templateObject7());
 var LoaderContainer = styled.div(_templateObject8(), function (props) {
   return props.loading && loadingSpinner;
 }, function (props) {
-  return theme(props).contrast;
+  return props.appearance === 'default' && props.theme.mode === 'light' ? theme(props).color : theme(props).contrast;
 });
 LoaderContainer.defaultProps = defaultProps;
 export { LoaderContainer };
