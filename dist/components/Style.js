@@ -52,7 +52,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  ", "\n  transition: all .2s ease-in-out;\n  min-width: ", "px;\n  max-height: ", "px;\n  padding: ", ";\n  cursor: pointer;\n  overflow: hidden;\n  border-radius: 4px;\n  box-shadow: 0 2.5px 7.5px 0 rgba(0,0,0,0.15);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 0.3px solid rgba(0,0,0,0.05);\n  opacity: 1;\n  background-color: ", ";\n  color: ", ";\n\n\n  &:enabled {\n    outline: 0;\n  }\n\n  &:disabled {\n    ", "\n  }\n\n  &:hover:not([disabled]) {\n    ", "\n  }\n\n  &:focus:not([disabled]) {\n    ", "\n  }\n\n  &:active:not([disabled]) {\n    ", "\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  transition: all .2s ease-in-out;\n  min-width: ", "px;\n  max-height: ", "px;\n  padding: ", ";\n  cursor: pointer;\n  overflow: hidden;\n  border-radius: 4px;\n  box-shadow: 0 2.5px 7.5px 0 rgba(0,0,0,0.15);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 0.3px solid rgba(0,0,0,0.05);\n  opacity: 1;\n  background-color: ", ";\n  color: ", ";\n\n\n  &:enabled {\n    outline: 0;\n  }\n\n  &:disabled {\n    ", "\n  }\n\n  &:hover:not([disabled]) {\n    ", "\n  }\n\n  &:focus:not([disabled]) {\n    ", "\n  }\n\n  &:active:not([disabled]) {\n    ", "\n  }\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -124,8 +124,6 @@ var activeButton = css(_templateObject4(), function (props) {
   return props.appearance === 'default' && props.theme.mode === 'light' ? Color(theme(props).contrast(props)).darken(0.2).string() : Color(theme(props).color(props)).darken(0.2).string();
 });
 var ButtonComponentStyled = styled.button(_templateObject5(), function (props) {
-  return console.log(props.appearance, props.theme.mode, theme(props).color(props));
-}, function (props) {
   return props.size === 'medium' ? 64 : props.size === 'small' ? 54 : 74;
 }, function (props) {
   return props.size === 'medium' ? 36 : props.size === 'small' ? 30 : 42;
