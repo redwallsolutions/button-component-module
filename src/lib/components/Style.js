@@ -1,8 +1,8 @@
 import styled, {createGlobalStyle, css} from 'styled-components'
-import Poppins from './../assets/fonts/Poppins-Regular.ttf';
 import Color from 'color';
-import RedwallColorPallete from 'color-pallete-component-module'
-import theming from 'styled-theming';
+import Theming from 'theming-component-module';
+
+const theme = Theming.createThemeWithAppearance()
 
 const defaultTheme = {
   theme: {
@@ -14,57 +14,13 @@ const defaultProps = {...defaultTheme}
 defaultProps.appearance = 'default'
 defaultProps.size = 'medium'
 
-const theme = theming.variants('mode', 'appearance', {
-  primary: {
-    light: {
-      color: props => props.theme.primary || RedwallColorPallete.primary,
-      contrast: props => props.theme.primaryContrast || RedwallColorPallete.primaryContrast
-    },
-    dark: {
-      color: props => props.theme.primaryDark || RedwallColorPallete.primaryDark,
-      contrast: props => props.theme.primaryDarkContrast || RedwallColorPallete.primaryDarkContrast
-    }
-  },
-  secondary: {
-    light: {
-      color: props => props.theme.secondary || RedwallColorPallete.secondary,
-      contrast: props => props.theme.secondaryContrast || RedwallColorPallete.secondaryContrast
-    },
-    dark: {
-      color: props => props.theme.secondaryDark || RedwallColorPallete.secondaryDark,
-      contrast: props => props.theme.secondaryDarkContrast || RedwallColorPallete.secondaryDarkContrast
-    }
-  },
-  default: {
-    light: {
-      color: props => props.theme.default || RedwallColorPallete.neutral,
-      contrast: props => props.theme.defaultContrast || RedwallColorPallete.neutralContrast
-    },
-    dark: {
-      color: props => props.theme.defaultDark || RedwallColorPallete.neutralDark,
-      contrast: props => props.theme.defaultDarkContrast || RedwallColorPallete.neutralDarkContrast
-    }
-  }
-})
-
 export const ButtonGlobalStyle = createGlobalStyle`
-
-  @font-face {
-    font-family: Poppins;
-    src: ${Poppins}, format("TrueType");
-    font-display: fallback;
-  }
 
   .button-component-module {
     display: inline-block;
     margin: 0.5em;
     position: relative;
-  }
-  .button-component-module * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Poppins, sans-serif;
+    font-family: Arial, Helvetica, Tahoma, Geneva, sans-serif;
   }
 `
 
@@ -74,12 +30,12 @@ const disabledButton = css`
 `
 const hoveredButton = css`
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.2);
-  background-color: ${props => Color(theme(props).color(props)).alpha(0.8).string()};
+  background-color: ${props => props.appearance === 'default' && props.theme.mode === 'light' ? Color(theme(props).contrast(props)).darken(0.1).string() : Color(theme(props).color(props)).lighten(0.2).string()};
 `
 
 const activeButton = css`
   box-shadow: 0 2px 10px -1px rgba(0,0,0,0.2);
-  background-color: ${props => Color(theme(props).color(props)).darken(0.2).string()};
+  background-color: ${props => props.appearance === 'default' && props.theme.mode === 'light' ? Color(theme(props).contrast(props)).darken(0.2).string() : Color(theme(props).color(props)).darken(0.2).string()};
 `
 
 const ButtonComponentStyled = styled.button`
@@ -96,8 +52,8 @@ const ButtonComponentStyled = styled.button`
   align-items: center;
   border: 0.3px solid rgba(0,0,0,0.05);
   opacity: 1;
-  background-color: ${props => theme(props).color};
-  color: ${props => theme(props).contrast};
+  background-color: ${props => props.appearance === 'default' && props.theme.mode === 'light' ? Color(theme(props).contrast(props)).darken(.15).string() : theme(props).color};
+  color: ${props => props.appearance === 'default' && props.theme.mode === 'light' ? theme(props).color : theme(props).contrast};
 
 
   &:enabled {

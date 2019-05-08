@@ -92,7 +92,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\n  @font-face {\n    font-family: Poppins;\n    src: ", ", format(\"TrueType\");\n    font-display: fallback;\n  }\n\n  .button-component-module {\n    display: inline-block;\n    margin: 0.5em;\n    position: relative;\n  }\n  .button-component-module * {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n    font-family: Poppins, sans-serif;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n\n  .button-component-module {\n    display: inline-block;\n    margin: 0.5em;\n    position: relative;\n    font-family: Arial, Helvetica, Tahoma, Geneva, sans-serif;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -102,10 +102,9 @@ function _templateObject() {
 }
 
 import styled, { createGlobalStyle, css } from 'styled-components';
-import Poppins from './../assets/fonts/Poppins-Regular.ttf';
 import Color from 'color';
-import RedwallColorPallete from 'color-pallete-component-module';
-import theming from 'styled-theming';
+import Theming from 'theming-component-module';
+var theme = Theming.createThemeWithAppearance();
 var defaultTheme = {
   theme: {
     mode: 'light'
@@ -116,69 +115,13 @@ var defaultProps = _objectSpread({}, defaultTheme);
 
 defaultProps.appearance = 'default';
 defaultProps.size = 'medium';
-var theme = theming.variants('mode', 'appearance', {
-  primary: {
-    light: {
-      color: function color(props) {
-        return props.theme.primary || RedwallColorPallete.primary;
-      },
-      contrast: function contrast(props) {
-        return props.theme.primaryContrast || RedwallColorPallete.primaryContrast;
-      }
-    },
-    dark: {
-      color: function color(props) {
-        return props.theme.primaryDark || RedwallColorPallete.primaryDark;
-      },
-      contrast: function contrast(props) {
-        return props.theme.primaryDarkContrast || RedwallColorPallete.primaryDarkContrast;
-      }
-    }
-  },
-  secondary: {
-    light: {
-      color: function color(props) {
-        return props.theme.secondary || RedwallColorPallete.secondary;
-      },
-      contrast: function contrast(props) {
-        return props.theme.secondaryContrast || RedwallColorPallete.secondaryContrast;
-      }
-    },
-    dark: {
-      color: function color(props) {
-        return props.theme.secondaryDark || RedwallColorPallete.secondaryDark;
-      },
-      contrast: function contrast(props) {
-        return props.theme.secondaryDarkContrast || RedwallColorPallete.secondaryDarkContrast;
-      }
-    }
-  },
-  default: {
-    light: {
-      color: function color(props) {
-        return props.theme.default || RedwallColorPallete.neutral;
-      },
-      contrast: function contrast(props) {
-        return props.theme.defaultContrast || RedwallColorPallete.neutralContrast;
-      }
-    },
-    dark: {
-      color: function color(props) {
-        return props.theme.defaultDark || RedwallColorPallete.neutralDark;
-      },
-      contrast: function contrast(props) {
-        return props.theme.defaultDarkContrast || RedwallColorPallete.neutralDarkContrast;
-      }
-    }
-  }
-});
-export var ButtonGlobalStyle = createGlobalStyle(_templateObject(), Poppins);
+export var ButtonGlobalStyle = createGlobalStyle(_templateObject());
 var disabledButton = css(_templateObject2());
 var hoveredButton = css(_templateObject3(), function (props) {
-  return Color(theme(props).color(props)).alpha(0.8).string();
+  return props.appearance === 'default' && props.theme.mode === 'light' ? Color(theme(props).contrast(props)).darken(0.1).string() : Color(theme(props).color(props)).lighten(0.2).string();
 });
 var activeButton = css(_templateObject4(), function (props) {
-  return Color(theme(props).color(props)).darken(0.2).string();
+  return props.appearance === 'default' && props.theme.mode === 'light' ? Color(theme(props).contrast(props)).darken(0.2).string() : Color(theme(props).color(props)).darken(0.2).string();
 });
 var ButtonComponentStyled = styled.button(_templateObject5(), function (props) {
   return props.size === 'medium' ? 64 : props.size === 'small' ? 54 : 74;
@@ -187,9 +130,9 @@ var ButtonComponentStyled = styled.button(_templateObject5(), function (props) {
 }, function (props) {
   return props.size === 'medium' ? '8px 16px' : props.size === 'small' ? '6px 12px' : '9px 19px';
 }, function (props) {
-  return theme(props).color;
+  return props.appearance === 'default' && props.theme.mode === 'light' ? Color(theme(props).contrast(props)).darken(.15).string() : theme(props).color;
 }, function (props) {
-  return theme(props).contrast;
+  return props.appearance === 'default' && props.theme.mode === 'light' ? theme(props).color : theme(props).contrast;
 }, disabledButton, hoveredButton, hoveredButton, activeButton);
 ButtonComponentStyled.defaultProps = defaultProps;
 export { ButtonComponentStyled };
