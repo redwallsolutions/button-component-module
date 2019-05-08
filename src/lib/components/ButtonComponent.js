@@ -6,30 +6,30 @@ const ButtonComponent = (props) => {
   const hasChildren = props.children ? true :  false
   const hasBeforeIcon = props.beforeIcon ? true : false
   const hasAfterIcon = props.afterIcon ? true : false
-  const {title, type, loading, ...rest} = props;
+  const {title, type, loading, appearance, ...rest} = props;
   return (
     <div className='button-component-module'>
-      <ButtonComponentStyled {...rest} title={title || props.children} type={type || 'button'}>
+      <ButtonComponentStyled {...rest} appearance={appearance} title={title || props.children} type={type || 'button'}>
         {
           hasBeforeIcon && (
-            <ButtonIconStyled isBefore={hasChildren}>{props.beforeIcon}</ButtonIconStyled>
+            <ButtonIconStyled appearance={appearance} isBefore={hasChildren}>{props.beforeIcon}</ButtonIconStyled>
           )
         }
         {
           hasChildren && (
-            <React.Fragment>
-              <ButtonTextStyled loading={props.loading}>
+            <>
+              <ButtonTextStyled appearance={appearance} loading={props.loading}>
                 {props.children}
               </ButtonTextStyled>
-              <LoaderContainer loading={props.loading} appearance={props.appearance}>
+              <LoaderContainer loading={props.loading} appearance={appearance}>
                 <ClipLoader size={14} />
               </LoaderContainer>
-            </React.Fragment>
+            </>
           )
         }
         {
           hasAfterIcon && (
-            <ButtonIconStyled isAfter={hasChildren}>{props.afterIcon}</ButtonIconStyled>
+            <ButtonIconStyled appearance={appearance} isAfter={hasChildren}>{props.afterIcon}</ButtonIconStyled>
           )
         }
       </ButtonComponentStyled>

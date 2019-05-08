@@ -11,15 +11,18 @@ class Button extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <ButtonGlobalStyle/>
         <ButtonComponent {...this.props} onClick={this.onClick}>
           {this.props.children}
         </ButtonComponent>
-      </React.Fragment>
+      </>
     );
   }
+}
 
+Button.defaulProps = {
+  appearance: 'default'
 }
 
 export default Button;
