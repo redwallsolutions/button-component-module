@@ -10,7 +10,6 @@ class Button extends Component {
   }
 
   render() {
-    console.log(this.props.appearance);
     return (
       <>
         <ButtonGlobalStyle/>

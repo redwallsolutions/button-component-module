@@ -37,7 +37,6 @@ function (_Component) {
   _createClass(Button, [{
     key: "render",
     value: function render() {
-      console.log(this.props.appearance);
       return React.createElement(React.Fragment, null, React.createElement(ButtonGlobalStyle, null), React.createElement(ButtonComponent, Object.assign({}, this.props, {
         onClick: this.onClick
       }), this.props.children));
