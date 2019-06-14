@@ -2544,9 +2544,9 @@ color-name@^1.0.0:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-"color-pallete-component-module@https://4c4f37bb6657744cab12a1d1c42e40ef1252aa1c:x-oauth-basic@github.com/redwallsolutions/color-pallete-component-module":
+"color-pallete-component-module@https://cf2066736ce8712fe9044d7176daa1edea6c4fe9:x-oauth-basic@github.com/redwallsolutions/color-pallete-component-module":
   version "1.2.1"
-  resolved "https://4c4f37bb6657744cab12a1d1c42e40ef1252aa1c:x-oauth-basic@github.com/redwallsolutions/color-pallete-component-module#88ac5702e1c4e8e6049167c79867642ee462cd39"
+  resolved "https://cf2066736ce8712fe9044d7176daa1edea6c4fe9:x-oauth-basic@github.com/redwallsolutions/color-pallete-component-module#88ac5702e1c4e8e6049167c79867642ee462cd39"
   dependencies:
     styled-components "^4.1.3"
 
@@ -9587,11 +9587,11 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-"theming-component-module@https://4c4f37bb6657744cab12a1d1c42e40ef1252aa1c:x-oauth-basic@github.com/redwallsolutions/theming-component-module":
-  version "1.1.0"
-  resolved "https://4c4f37bb6657744cab12a1d1c42e40ef1252aa1c:x-oauth-basic@github.com/redwallsolutions/theming-component-module#fa1ada956ee294bd5a7d7a98a1c76d0e6c52f318"
+"theming-component-module@https://cf2066736ce8712fe9044d7176daa1edea6c4fe9:x-oauth-basic@github.com/redwallsolutions/theming-component-module":
+  version "1.2.1"
+  resolved "https://cf2066736ce8712fe9044d7176daa1edea6c4fe9:x-oauth-basic@github.com/redwallsolutions/theming-component-module#9a0b8615869a6b63b8abeb8a737d8eae62369836"
   dependencies:
-    color-pallete-component-module "https://4c4f37bb6657744cab12a1d1c42e40ef1252aa1c:x-oauth-basic@github.com/redwallsolutions/color-pallete-component-module"
+    color-pallete-component-module "https://cf2066736ce8712fe9044d7176daa1edea6c4fe9:x-oauth-basic@github.com/redwallsolutions/color-pallete-component-module"
     styled-components "^4.1.3"
     styled-theming "^2.2.0"
 
