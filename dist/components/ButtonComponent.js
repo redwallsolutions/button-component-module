@@ -10,9 +10,9 @@ var ButtonComponent = function ButtonComponent(props) {
 
   var title = props.title,
       type = props.type,
-      loading = props.loading,
+      isLoading = props.isLoading,
       appearance = props.appearance,
-      rest = _objectWithoutProperties(props, ["title", "type", "loading", "appearance"]);
+      rest = _objectWithoutProperties(props, ["title", "type", "isLoading", "appearance"]);
 
   return React.createElement("div", {
     className: "button-component-module"
@@ -25,9 +25,9 @@ var ButtonComponent = function ButtonComponent(props) {
     isBefore: hasChildren
   }, props.beforeIcon), hasChildren && React.createElement(React.Fragment, null, React.createElement(ButtonTextStyled, {
     appearance: appearance,
-    loading: props.loading
+    isLoading: props.isLoading
   }, props.children), React.createElement(LoaderContainer, {
-    loading: props.loading,
+    isLoading: props.isLoading,
     appearance: appearance
   }, React.createElement(ClipLoader, {
     size: 14

@@ -6,7 +6,7 @@ const ButtonComponent = (props) => {
   const hasChildren = props.children ? true :  false
   const hasBeforeIcon = props.beforeIcon ? true : false
   const hasAfterIcon = props.afterIcon ? true : false
-  const {title, type, loading, appearance, ...rest} = props;
+  const {title, type, isLoading, appearance, ...rest} = props;
   return (
     <div className='button-component-module'>
       <ButtonComponentStyled {...rest} appearance={appearance} title={title || props.children} type={type || 'button'}>
@@ -18,10 +18,10 @@ const ButtonComponent = (props) => {
         {
           hasChildren && (
             <>
-              <ButtonTextStyled appearance={appearance} loading={props.loading}>
+              <ButtonTextStyled appearance={appearance} isLoading={props.isLoading}>
                 {props.children}
               </ButtonTextStyled>
-              <LoaderContainer loading={props.loading} appearance={appearance}>
+              <LoaderContainer isLoading={props.isLoading} appearance={appearance}>
                 <ClipLoader size={14} />
               </LoaderContainer>
             </>

@@ -73,7 +73,7 @@ const ResetCSS = createGlobalStyle`
 class App extends React.Component {
 
   state = {
-    loading: false,
+    isLoading: false,
     disabled: false,
     singleLoading: true,
     theme: {
@@ -131,8 +131,8 @@ class App extends React.Component {
             <h2>Button Component Module</h2>
             <div style={{display:'flex', justifyContent: 'space-around', width: '70%', flexWrap: 'wrap'}}>
               <div>
-                <label htmlFor='loading'>Loading</label>
-                <input type='checkbox' id='loading' onChange={this.onChangeBasicProps}></input>
+                <label htmlFor='isLoading'>Loading</label>
+                <input type='checkbox' id='isLoading' onChange={this.onChangeBasicProps}></input>
               </div>
               <div>
                 <label htmlFor='disabled'>Disabled</label>
@@ -156,7 +156,7 @@ class App extends React.Component {
                 buttonsArray.map((button,index) => {
                   return (
                     <React.Fragment key={index}>
-                      <Button loading={this.state.loading} disabled={this.state.disabled} {...button.props}>
+                      <Button isLoading={this.state.isLoading} disabled={this.state.disabled} {...button.props}>
                         {button.text}
                       </Button>
                       <br/>

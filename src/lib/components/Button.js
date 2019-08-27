@@ -4,7 +4,7 @@ import ButtonComponent from './ButtonComponent';
 class Button extends Component {
 
   onClick = (e) => {
-    if(this.props.onClick && !this.props.loading){
+    if(this.props.onClick && !this.props.isLoading){
       this.props.onClick(e)
     }
   }
@@ -23,7 +23,9 @@ class Button extends Component {
 
 Button.defaultProps = {
   size: 'md',
-  appearance: 'default'
+  appearance: 'default',
+  disabled: false,
+  isLoading: false
 }
 
 export default Button;

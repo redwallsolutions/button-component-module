@@ -136,17 +136,17 @@ var ButtonComponentStyled = styled.button(_templateObject5(), function (props) {
 }, disabledButton, hoveredButton, hoveredButton, activeButton);
 ButtonComponentStyled.defaultProps = defaultProps;
 export { ButtonComponentStyled };
-var loadingSpinner = css(_templateObject6());
-var loadingButtonText = css(_templateObject7());
+var isLoadingSpinner = css(_templateObject6());
+var isLoadingButtonText = css(_templateObject7());
 var LoaderContainer = styled.div(_templateObject8(), function (props) {
-  return props.loading && loadingSpinner;
+  return props.isLoading && isLoadingSpinner;
 }, function (props) {
   return props.appearance === 'default' && props.theme.mode === 'light' ? theme(props).color : theme(props).contrast;
 });
 LoaderContainer.defaultProps = defaultProps;
 export { LoaderContainer };
 var ButtonTextStyled = styled.span(_templateObject9(), function (props) {
-  return props.loading && loadingButtonText;
+  return props.isLoading && isLoadingButtonText;
 });
 ButtonTextStyled.defaultProps = defaultProps;
 export { ButtonTextStyled };

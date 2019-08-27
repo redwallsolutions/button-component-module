@@ -80,13 +80,13 @@ ButtonComponentStyled.defaultProps = defaultProps
 
 export {ButtonComponentStyled}
 
-const loadingSpinner = css`
+const isLoadingSpinner = css`
   visibility: visible;
   opacity: 1;
   transform: scale(1);
 `
 
-const loadingButtonText = css`
+const isLoadingButtonText = css`
   opacity: 0;
   transform: scale(0);
 `
@@ -97,7 +97,7 @@ const LoaderContainer = styled.div`
   visibility: hidden;
   opacity: 0;
   transform: scale(0);
-  ${props => props.loading && loadingSpinner}
+  ${props => props.isLoading && isLoadingSpinner}
   div {
     border-color: ${props => props.appearance === 'default' && props.theme.mode === 'light' ? theme(props).color : theme(props).contrast};
     border-bottom-color: transparent;
@@ -121,7 +121,7 @@ const ButtonTextStyled = styled.span`
   line-height: 18px;
   font-size: 14px;
   letter-spacing: .4px;
-  ${props => props.loading && loadingButtonText}
+  ${props => props.isLoading && isLoadingButtonText}
 `
 
 ButtonTextStyled.defaultProps = defaultProps

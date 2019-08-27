@@ -26,7 +26,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Button)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _this.onClick = function (e) {
-      if (_this.props.onClick && !_this.props.loading) {
+      if (_this.props.onClick && !_this.props.isLoading) {
         _this.props.onClick(e);
       }
     };
@@ -48,6 +48,8 @@ function (_Component) {
 
 Button.defaultProps = {
   size: 'md',
-  appearance: 'default'
+  appearance: 'default',
+  disabled: false,
+  isLoading: false
 };
 export default Button;
