@@ -7,6 +7,9 @@
     "dist"
   ],
   "repository": "https://github.com/redwallsolutions/button-component-module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build-examples": "react-scripts build",

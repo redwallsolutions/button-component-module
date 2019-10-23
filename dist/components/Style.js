@@ -2,7 +2,7 @@ import _taggedTemplateLiteral from "@babel/runtime/helpers/esm/taggedTemplateLit
 import _objectSpread from "@babel/runtime/helpers/esm/objectSpread";
 
 function _templateObject10() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin", "px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: 1;\n  transition: .2s;\n  margin", "px;\n  opacity: ", ";\n"]);
 
   _templateObject10 = function _templateObject10() {
     return data;
@@ -62,7 +62,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  box-shadow: 0 2px 10px -1px rgba(0,0,0,0.2);\n  background-color: ", ";\n"]);
+  var data = _taggedTemplateLiteral(["\n  box-shadow: 0 2px 10px -1px rgba(0,0,0,0.2);\n  background-color: ", ";\n  transform: translateY(1px);\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -103,7 +103,7 @@ function _templateObject() {
 
 import styled, { createGlobalStyle, css } from 'styled-components';
 import Color from 'color';
-import Theming from 'theming-component-module';
+import Theming from '@redwallsolutions/theming-component-module';
 var theme = Theming.createThemeWithAppearance();
 var defaultTheme = {
   theme: {
@@ -152,4 +152,6 @@ ButtonTextStyled.defaultProps = defaultProps;
 export { ButtonTextStyled };
 export var ButtonIconStyled = styled.span(_templateObject10(), function (props) {
   return props.isBefore ? '-right: 10' : props.isAfter ? '-left: 10' : ':0';
+}, function (props) {
+  return props.isLoading ? 0 : 1;
 });
