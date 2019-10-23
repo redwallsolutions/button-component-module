@@ -1,6 +1,6 @@
 import styled, {createGlobalStyle, css} from 'styled-components'
 import Color from 'color';
-import Theming from 'theming-component-module';
+import Theming from '@redwallsolutions/theming-component-module';
 
 const theme = Theming.createThemeWithAppearance()
 
@@ -35,6 +35,7 @@ const hoveredButton = css`
 const activeButton = css`
   box-shadow: 0 2px 10px -1px rgba(0,0,0,0.2);
   background-color: ${props => props.appearance === 'default' && props.theme.mode === 'light' ? Color(theme(props).contrast(props)).darken(0.2).string() : Color(theme(props).color(props)).darken(0.2).string()};
+  transform: translateY(1px);
 `
 
 const ButtonComponentStyled = styled.button`
@@ -132,5 +133,8 @@ export const ButtonIconStyled = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: .2s;
   margin${props => props.isBefore ? '-right: 10' : (props.isAfter ? '-left: 10' : ':0')}px;
+  opacity: ${props => props.isLoading ? 0 : 1};
 `

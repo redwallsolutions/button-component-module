@@ -1,31 +1,40 @@
-import React, { Component } from 'react';
-import { ButtonGlobalStyle } from './Style';
-import ButtonComponent from './ButtonComponent';
-class Button extends Component {
+import React from 'react'
+import { ButtonGlobalStyle } from './Style'
+import ButtonComponent from './ButtonComponent'
+import PropTypes from 'prop-types'
 
-  onClick = (e) => {
-    if(this.props.onClick && !this.props.isLoading){
-      this.props.onClick(e)
-    }
-  }
 
-  render() {
-    return (
-      <>
-        <ButtonGlobalStyle/>
-        <ButtonComponent {...this.props} onClick={this.onClick}>
-          {this.props.children}
-        </ButtonComponent>
-      </>
-    );
-  }
+function Button({ onClick, children, isLoading, ...rest }) {
+	function innerOnClick(e) {
+		if (onClick && !isLoading) {
+			onClick(e)
+		}
+	}
+
+	return (
+		<>
+			<ButtonGlobalStyle />
+			<ButtonComponent {...rest} isLoading={isLoading} onClick={innerOnClick}>
+				{children}
+			</ButtonComponent>
+		</>
+	)
 }
 
 Button.defaultProps = {
-  size: 'md',
-  appearance: 'default',
-  disabled: false,
-  isLoading: false
+	size: 'md',
+	appearance: 'default',
+	disabled: false,
+  isLoading: false,
+  onClick: undefined
 }
 
-export default Button;
+Button.propTypes = {
+  size: PropTypes.string,
+  appearance: PropTypes.string,
+  disabled: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  onClick: PropTypes.func
+}
+
+export default Button

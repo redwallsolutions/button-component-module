@@ -58,6 +58,12 @@ const buttonsArray = [{
   props: {
     appearance: 'primary'
   }
+}, {
+  text: 'I have a custom title',
+  props: {
+    appearance: "default",
+    title: "UHULLL"
+  }
 }];
 
 const ResetCSS = createGlobalStyle`
