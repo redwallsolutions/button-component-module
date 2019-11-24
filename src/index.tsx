@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { createThemeWithAppearance } from '@redwallsolutions/theming-component-module'
 import Button from './lib'
-import { IAppearance } from '@redwallsolutions/common-interfaces-ts'
+import { IAppearance, IThemeMode } from '@redwallsolutions/common-interfaces-ts'
 
 const theming = createThemeWithAppearance()
 
@@ -35,6 +35,7 @@ const InputsContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-wrap: wrap;
 `
 
 const InputItem = styled.div`
@@ -53,11 +54,11 @@ const App: FC = () => {
 		let inputName = currentTarget.attributes.getNamedItem('name').nodeValue
 		if (inputName === 'mode') {
 			setThemeMode(currentTarget.id)
-		} else if(inputName === 'loading') {
+		} else if (inputName === 'loading') {
 			setIsLoading(!isLoading)
 		} else {
 			setAppearance(currentTarget.id)
-		} 
+		}
 	}
 
 	return (
@@ -118,7 +119,27 @@ const App: FC = () => {
 						marginTop: '10em'
 					}}
 				>
-					<Button appearance={appearance as IAppearance} isLoading={isLoading}>Something</Button>
+					<div style={{ display: 'flex', flexDirection: 'column' }}>
+						<Button
+							appearance={appearance as IAppearance}
+							isLoading={isLoading}
+						>
+							Something
+						</Button>
+						<Button appearance="primary" isLoading={isLoading}>
+							Always Primary
+						</Button>
+						<Button appearance="secondary" isLoading={isLoading}>
+							Always Secondary
+						</Button>
+						<ThemeProvider
+							theme={{ mode: themeMode as IThemeMode, primary: 'purple' }}
+						>
+							<Button appearance={appearance as IAppearance} isLoading={isLoading}>
+								Custom Primary Color
+							</Button>
+						</ThemeProvider>
+					</div>
 				</div>
 			</Container>
 		</ThemeProvider>

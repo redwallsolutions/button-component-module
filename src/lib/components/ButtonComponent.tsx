@@ -1,6 +1,6 @@
 import React, { FC, ButtonHTMLAttributes, useContext, MouseEvent } from 'react'
 import Ink from 'react-ink'
-import { Button, LoaderContainer, theming, TextContainer } from './Style'
+import { Button, LoaderContainer, theming, TextContainer, Reset } from './Style'
 import { ThemeContext } from 'styled-components'
 import { IButtonStyled } from './interfaces'
 import ClipLoader from 'react-spinners/ClipLoader'
@@ -22,11 +22,13 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
 	}
 
 	const themeToApply = useContext(ThemeContext) || theme
-	console.log(themeToApply)
-	const contrast = theming({theme: themeToApply, appearance}).contrast({theme: themeToApply, appearance})
-	console.log(contrast)
+	const contrast = theming({ theme: themeToApply, appearance }).contrast({
+		theme: themeToApply,
+		appearance
+	})
 	return (
 		<div className="button-component-module">
+			<Reset/>
 			<Button
 				theme={themeToApply}
 				appearance={appearance}
@@ -34,13 +36,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
 				disabled={disabled}
 				{...rest}
 			>
-				<TextContainer
-					isLoading={isLoading}
-					appearance={appearance}
-					theme={themeToApply}
-				>
-					{children}
-				</TextContainer>
+				<TextContainer isLoading={isLoading}>{children}</TextContainer>
 				<LoaderContainer isLoading={isLoading}>
 					<ClipLoader size={20} color={contrast} />
 				</LoaderContainer>
