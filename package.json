@@ -1,6 +1,6 @@
 {
 	"name": "@redwallsolutions/button-component-module",
-	"version": "1.7.0",
+	"version": "1.8.0",
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
 	"repository": "https://github.com/redwallsolutions/button-component-module",
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org",
-		"access":"public"
+		"access": "public"
 	},
 	"author": "Andrew Ribeiro",
 	"license": "MIT",
