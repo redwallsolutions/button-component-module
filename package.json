@@ -17,6 +17,10 @@
 		"deploy": "gh-pages -d demo/output"
 	},
 	"repository": "https://github.com/redwallsolutions/button-component-module",
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org",
+		"access":"public"
+	},
 	"author": "Andrew Ribeiro",
 	"license": "MIT",
 	"devDependencies": {
