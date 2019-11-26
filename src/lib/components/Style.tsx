@@ -11,6 +11,9 @@ export const Reset = createGlobalStyle`
 		padding: 0;
 		margin: 0;
 		font-family: Arial, Helvetica, Tahoma, Geneva, sans-serif;
+		button::-moz-focus-inner {
+			border: 0;
+		}
 		* {
 			box-sizing: border-box;
 			transition: 0.2s;
