@@ -26,27 +26,46 @@ export const Button = styled.button<IButtonStyled>`
 	border: none;
 	border-radius: 4px;
 	padding: 0 16px;
-	background-color: ${props => theming(props).color};
+	background-color: ${props =>
+		props.variant === 'contained' ? theming(props).color : 'transparent'};
 	font-size: 14px;
 	font-weight: bold;
 	cursor: pointer;
 	color: ${props =>
-		Color(theming(props).contrast(props))
-			.grayscale()
-			.toString()};
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+		props.variant === 'contained'
+			? Color(theming(props).contrast(props))
+					.grayscale()
+					.toString()
+			: theming(props).color};
+	${props =>
+		props.variant === 'contained' &&
+		'box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);'}
 	&:hover {
-		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+		${props =>
+			props.variant === 'contained' &&
+			'box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);'}
 		background-color: ${props =>
-			Color(theming(props).color(props))
-				.lighten(0.1)
-				.toString()};
+			props.variant === 'contained'
+				? Color(theming(props).color(props))
+						.lighten(0.1)
+						.toString()
+				: Color(theming(props).color(props))
+						.alpha(0.1)
+						.toString()};
 	}
 	&:active {
 		box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22);
 	}
 	&:focus {
 		outline: none;
+		background-color: ${props =>
+			props.variant === 'contained'
+				? Color(theming(props).color(props))
+						.lighten(0.1)
+						.toString()
+				: Color(theming(props).color(props))
+						.alpha(0.1)
+						.toString()};
 	}
 `
 

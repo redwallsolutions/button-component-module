@@ -12,6 +12,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
 	isLoading,
 	onClick,
 	appearance = 'default',
+	variant = 'contained',
 	disabled,
 	...rest
 }) => {
@@ -32,6 +33,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
 			<Button
 				theme={themeToApply}
 				appearance={appearance}
+				variant={variant}
 				onClick={innerOnClick}
 				disabled={disabled}
 				{...rest}

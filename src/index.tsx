@@ -135,10 +135,15 @@ const App: FC = () => {
 						<ThemeProvider
 							theme={{ mode: themeMode as IThemeMode, primary: 'purple' }}
 						>
-							<Button appearance={appearance as IAppearance} isLoading={isLoading}>
+							<Button
+								appearance={appearance as IAppearance}
+								isLoading={isLoading}
+							>
 								Custom Primary Color
 							</Button>
 						</ThemeProvider>
+						<Button variant="text">Text</Button>
+						<Button variant="text" appearance="primary">Primary Text</Button>
 					</div>
 				</div>
 			</Container>
