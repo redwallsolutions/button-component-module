@@ -7,6 +7,7 @@ export const theming = createThemeWithAppearance()
 
 export const Reset = createGlobalStyle`
 	.button-component-module {
+		display: inline;
 		padding: 0;
 		margin: 0;
 		font-family: Arial, Helvetica, Tahoma, Geneva, sans-serif;
@@ -22,6 +23,7 @@ export const Button = styled.button<IButtonStyled>`
 	display: inline-block;
 	position: relative;
 	min-width: 64px;
+	width: ${props => props.shouldFitContainer ? '100%' : 'auto'};
 	height: 36px;
 	border: none;
 	border-radius: 4px;

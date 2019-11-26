@@ -13,6 +13,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
 	onClick,
 	appearance = 'default',
 	variant = 'contained',
+	shouldFitContainer,
 	disabled,
 	...rest
 }) => {
@@ -36,6 +37,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
 				variant={variant}
 				onClick={innerOnClick}
 				disabled={disabled}
+				shouldFitContainer={shouldFitContainer}
 				{...rest}
 			>
 				<TextContainer isLoading={isLoading}>{children}</TextContainer>

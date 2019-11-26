@@ -143,9 +143,17 @@ const App: FC = () => {
 							</Button>
 						</ThemeProvider>
 						<Button variant="text">Text</Button>
-						<Button variant="text" appearance="primary">Primary Text</Button>
+						<Button variant="text" appearance="primary">
+							Primary Text
+						</Button>
 					</div>
 				</div>
+				<Button variant="text" shouldFitContainer>
+					I'm a block
+				</Button>
+				<Button appearance="secondary" shouldFitContainer>
+					I'm a colorful block
+				</Button>
 			</Container>
 		</ThemeProvider>
 	)

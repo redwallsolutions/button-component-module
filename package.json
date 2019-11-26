@@ -9,7 +9,7 @@
 	],
 	"scripts": {
 		"test": "echo \"No tests specified.\"",
-		"start": "rimraf demo/output && parcel demo/index.html -d demo/output",
+		"start": "rimraf demo/output && parcel demo/index.html -d demo/output --open",
 		"build": "rimraf dist && tsc",
 		"docz:dev": "docz dev",
 		"docz:build": "rimraf demo/output && docz build",
