@@ -1,6 +1,6 @@
 export default {
 	typescript: true,
 	ignore: ['README.md'],
-	base: '/card-component-module/',
+	base: '/button-component-module/',
 	dest: 'demo/output'
 }
