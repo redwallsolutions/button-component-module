@@ -3,6 +3,12 @@ import { createThemeWithAppearance } from "@redwallsolutions/theming-component-m
 import Color from "color";
 import { IButtonStyled } from "./interfaces";
 
+const borderStyles = {
+  rounded: 4,
+  fullrounded: 1000,
+  rect: 0,
+};
+
 export const theming = createThemeWithAppearance();
 
 export const Button = styled.button<IButtonStyled>`
@@ -17,8 +23,8 @@ export const Button = styled.button<IButtonStyled>`
 	width: ${(props) => (props.shouldFitContainer ? "100%" : "auto")};
 	height: 36px;
 	border: none;
-	border-radius: 4px;
-	padding: 0 16px;
+	border-radius: ${({ border = "rounded" }) => borderStyles[border]}px;
+	padding: 0 ${({ border }) => (border === "fullrounded" ? 22 : 16)}px;
 	background-color: ${(props) =>
     props.variant === "contained" ? theming(props).color : "transparent"};
 	font-size: 14px;
@@ -32,11 +38,11 @@ export const Button = styled.button<IButtonStyled>`
       : theming(props).color};
 	${(props) =>
     props.variant === "contained" &&
-    "box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);"}
+    "box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);"}
 	&:hover {
 		${(props) =>
       props.variant === "contained" &&
-      "box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);"}
+      "box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.2);"}
 		background-color: ${(props) =>
       props.variant === "contained"
         ? Color(theming(props).color(props))
@@ -47,7 +53,7 @@ export const Button = styled.button<IButtonStyled>`
             .toString()};
 	}
 	&:active {
-		box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22);
+		box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
 	}
 	&:focus {
 		outline: none;

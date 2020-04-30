@@ -17,6 +17,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
   onClick,
   appearance = "default",
   variant = "contained",
+  border = "rounded",
   shouldFitContainer,
   disabled,
   ...rest
@@ -37,6 +38,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
   return (
     <Button
       theme={themeToApply}
+      border={border}
       appearance={appearance}
       variant={variant}
       onClick={innerOnClick}
@@ -48,7 +50,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
       <LoaderContainer isLoading={isLoading}>
         <ClipLoader size={20} color={contrast} />
       </LoaderContainer>
-      <Ink radius={1000} duration={1200} />
+      <Ink radius={1000} opacity={0.3} duration={1000}/>
     </Button>
   );
 };

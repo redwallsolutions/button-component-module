@@ -1,6 +1,7 @@
 import { ICommonProps } from '@redwallsolutions/common-interfaces-ts'
 
 export type Variant = 'text' | 'contained'
+export type BorderType = 'rounded' | 'fullrounded' | 'rect'
 
 export interface IButtonStyled extends ICommonProps {
     /**
@@ -17,4 +18,9 @@ export interface IButtonStyled extends ICommonProps {
      * The shouldFitContainer prop defines if the component will fit the parent width.
      */
     shouldFitContainer?:boolean
+
+    /**
+     * The border prop defines the style of the button border.
+     */
+    border?: BorderType
 }

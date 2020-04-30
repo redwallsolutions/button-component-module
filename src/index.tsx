@@ -160,7 +160,16 @@ const App: FC = () => {
         <Button disabled appearance="primary">
           Disabled
         </Button>
-        <Button theme={{ mode: "light", default: "green" }}>Disabled</Button>
+        <Button theme={{ mode: "light", default: "green" }}>Inner Theme</Button>
+        <Button
+          theme={{ mode: "light", default: "darkcyan" }}
+          border="fullrounded"
+        >
+          Rounded
+        </Button>
+        <Button border="fullrounded" variant="text">
+          Text Full-Rounded
+        </Button>
       </Container>
     </ThemeProvider>
   );
