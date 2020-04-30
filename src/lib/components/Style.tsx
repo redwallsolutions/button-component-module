@@ -1,29 +1,18 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import { createThemeWithAppearance } from "@redwallsolutions/theming-component-module";
 import Color from "color";
 import { IButtonStyled } from "./interfaces";
 
 export const theming = createThemeWithAppearance();
 
-export const Reset = createGlobalStyle`
-	.button-component-module {
-		display: inline;
-		padding: 0;
-		margin: 0;
-		font-family: Arial, Helvetica, Tahoma, Geneva, sans-serif;
-		button::-moz-focus-inner {
-			border: 0;
-		}
-		* {
-			box-sizing: border-box;
-			transition: 0.2s;
-			outline: none;
-		}
-	}
-`;
-
 export const Button = styled.button<IButtonStyled>`
 	display: inline-block;
+	font-family: Arial, Helvetica, Tahoma, Geneva, sans-serif;
+	&::-moz-focus-inner {
+			border: 0;
+	}
+	box-sizing: border-box;
+	outline: none;
 	position: relative;
 	width: ${(props) => (props.shouldFitContainer ? "100%" : "auto")};
 	height: 36px;
@@ -37,7 +26,9 @@ export const Button = styled.button<IButtonStyled>`
 	cursor: pointer;
 	color: ${(props) =>
     props.variant === "contained"
-      ? Color(theming(props).contrast(props)).grayscale().toString()
+      ? Color(theming(props).contrast(props))
+          .grayscale()
+          .toString()
       : theming(props).color};
 	${(props) =>
     props.variant === "contained" &&
@@ -48,8 +39,12 @@ export const Button = styled.button<IButtonStyled>`
       "box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);"}
 		background-color: ${(props) =>
       props.variant === "contained"
-        ? Color(theming(props).color(props)).lighten(0.1).toString()
-        : Color(theming(props).color(props)).alpha(0.1).toString()};
+        ? Color(theming(props).color(props))
+            .lighten(0.1)
+            .toString()
+        : Color(theming(props).color(props))
+            .alpha(0.1)
+            .toString()};
 	}
 	&:active {
 		box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22);
@@ -58,8 +53,12 @@ export const Button = styled.button<IButtonStyled>`
 		outline: none;
 		background-color: ${(props) =>
       props.variant === "contained"
-        ? Color(theming(props).color(props)).lighten(0.1).toString()
-        : Color(theming(props).color(props)).alpha(0.1).toString()};
+        ? Color(theming(props).color(props))
+            .lighten(0.1)
+            .toString()
+        : Color(theming(props).color(props))
+            .alpha(0.1)
+            .toString()};
 	}
 	&:disabled {
 		filter: grayscale(.5);

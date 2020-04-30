@@ -160,6 +160,7 @@ const App: FC = () => {
         <Button disabled appearance="primary">
           Disabled
         </Button>
+        <Button theme={{ mode: "light", default: "green" }}>Disabled</Button>
       </Container>
     </ThemeProvider>
   );
