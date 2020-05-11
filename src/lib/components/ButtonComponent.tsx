@@ -50,7 +50,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
       <LoaderContainer isLoading={isLoading}>
         <ClipLoader size={20} color={contrast} />
       </LoaderContainer>
-      <Ink radius={1000} opacity={0.3} duration={1000}/>
+      <Ink radius={1000} opacity={0.3} duration={1000} background={false}/>
     </Button>
   );
 };

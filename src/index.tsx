@@ -19,7 +19,6 @@ const Reset = createGlobalStyle<any>`
         color: ${(props) => theming(props).color};
         &, * {
             box-sizing: border-box;
-            transition: .3s;
         }
     }
 `;
