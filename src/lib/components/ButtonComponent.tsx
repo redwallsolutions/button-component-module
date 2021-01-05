@@ -23,10 +23,9 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
   ...rest
 }) => {
   const innerOnClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     if (!isLoading && !disabled && onClick) {
-      setTimeout(() => {
-        onClick(event);
-      }, 200);
+      onClick(event);
     }
   };
 
@@ -50,7 +49,7 @@ const ButtonComponent: FC<ButtonHTMLAttributes<HTMLButtonElement> &
       <LoaderContainer isLoading={isLoading}>
         <ClipLoader size={20} color={contrast} />
       </LoaderContainer>
-      <Ink radius={1000} opacity={0.3} duration={1000} background={false}/>
+      <Ink radius={1000} opacity={0.3} duration={1000} background={false} />
     </Button>
   );
 };
